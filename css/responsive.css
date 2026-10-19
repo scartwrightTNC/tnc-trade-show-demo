@@ -1,0 +1,362 @@
+/* Responsive Design Adaptations */
+
+/* Mobile Portrait */
+@media (max-width: 768px) {
+    :root {
+        --space-xs: 1vmin;
+        --space-sm: 1.5vmin;
+        --space-md: 3vmin;
+        --space-lg: 4vmin;
+        --space-xl: 6vmin;
+        --space-2xl: 8vmin;
+    }
+    
+    /* Header */
+    .app-header {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .header-logo {
+        height: 6vmin;
+    }
+    
+    .header-title {
+        font-size: 4vmin;
+    }
+    
+    .attract-btn {
+        font-size: 3vmin;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    /* Breadcrumb */
+    .breadcrumb {
+        padding: var(--space-xs) var(--space-md);
+    }
+    
+    .breadcrumb-item {
+        font-size: 2.5vmin;
+    }
+    
+    /* Main Content */
+    .main-content {
+        padding: var(--space-md);
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    /* Category Cards */
+    .category-card {
+        padding: var(--space-lg);
+    }
+    
+    .category-icon {
+        width: 12vmin;
+        height: 12vmin;
+        font-size: 6vmin;
+    }
+    
+    .category-name {
+        font-size: 4vmin;
+    }
+    
+    .category-count {
+        font-size: 2.5vmin;
+    }
+    
+    /* Item Cards */
+    .item-card {
+        padding: var(--space-md);
+    }
+    
+    .item-icon {
+        width: 7vmin;
+        height: 7vmin;
+        font-size: 3.5vmin;
+    }
+    
+    .item-title {
+        font-size: 3vmin;
+    }
+    
+    .item-description {
+        font-size: 2.2vmin;
+    }
+    
+    .method-badge {
+        font-size: 1.8vmin;
+        padding: 0.5vmin 1vmin;
+    }
+    
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        max-width: none;
+        border-radius: 2vmin 2vmin 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 85vh;
+    }
+    
+    .modal-body {
+        padding: var(--space-lg);
+    }
+    
+    .demo-icon {
+        width: 10vmin;
+        height: 10vmin;
+        font-size: 5vmin;
+    }
+    
+    .demo-title {
+        font-size: 4vmin;
+    }
+    
+    .demo-description {
+        font-size: 2.5vmin;
+    }
+    
+    .method-card {
+        padding: var(--space-md);
+    }
+    
+    .method-icon {
+        width: 8vmin;
+        height: 8vmin;
+        font-size: 4vmin;
+    }
+    
+    .method-platform {
+        font-size: 3vmin;
+    }
+    
+    .method-description {
+        font-size: 2vmin;
+    }
+    
+    /* Offline Indicator */
+    .offline-indicator {
+        bottom: var(--space-md);
+        right: var(--space-md);
+        font-size: 2vmin;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    /* QR Modal */
+    .qr-modal .modal-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: auto;
+        width: 90%;
+    }
+    
+    /* Attraction Screen */
+    .attract-welcome {
+        font-size: 5vmin;
+    }
+    
+    .attract-tagline {
+        font-size: 6vmin;
+    }
+    
+    .attract-features {
+        flex-direction: column;
+        gap: 2vmin;
+    }
+    
+    .feature-badge {
+        padding: 1.5vmin;
+    }
+    
+    .feature-badge i {
+        font-size: 4vmin;
+    }
+    
+    .feature-badge span {
+        font-size: 2vmin;
+    }
+    
+    .hint-icon {
+        font-size: 5vmin;
+    }
+    
+    .hint-text {
+        font-size: 3vmin;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+    
+    .category-icon {
+        width: 10vmin;
+        height: 10vmin;
+        font-size: 5vmin;
+    }
+    
+    .category-name {
+        font-size: 3.5vmin;
+    }
+}
+
+/* Landscape Orientation */
+@media (orientation: landscape) and (max-height: 768px) {
+    .app-header {
+        padding: var(--space-sm) var(--space-lg);
+    }
+    
+    .header-logo {
+        height: 4vmin;
+    }
+    
+    .header-title {
+        font-size: 2.5vmin;
+    }
+    
+    .main-content {
+        grid-template-columns: repeat(auto-fit, minmax(25vmin, 1fr));
+        gap: var(--space-md);
+        padding: var(--space-md);
+    }
+    
+    .category-card {
+        padding: var(--space-md);
+    }
+    
+    .category-icon {
+        width: 6vmin;
+        height: 6vmin;
+        font-size: 3vmin;
+    }
+    
+    .category-name {
+        font-size: 2.5vmin;
+    }
+    
+    /* Attraction Screen */
+    .attract-content {
+        gap: 2vmin;
+        padding: 2vmin;
+    }
+    
+    .logo-img {
+        max-height: 15vmin;
+    }
+    
+    .attract-welcome {
+        font-size: 3vmin;
+    }
+    
+    .attract-tagline {
+        font-size: 4vmin;
+    }
+    
+    .attract-features {
+        margin-top: 1vmin;
+    }
+    
+    .feature-badge {
+        padding: 1vmin;
+    }
+    
+    .feature-badge i {
+        font-size: 2.5vmin;
+    }
+    
+    .feature-badge span {
+        font-size: 1.4vmin;
+    }
+    
+    .attract-hint {
+        margin-top: 2vmin;
+    }
+    
+    .hint-icon {
+        font-size: 3vmin;
+    }
+    
+    .hint-text {
+        font-size: 2vmin;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .main-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        grid-template-columns: repeat(auto-fit, minmax(35vmin, 1fr));
+    }
+    
+    /* Show hover states on desktop */
+    .category-card:hover,
+    .item-card:hover,
+    .method-card:hover {
+        cursor: pointer;
+    }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .category-card:hover,
+    .item-card:hover,
+    .method-card:hover {
+        transform: none;
+    }
+    
+    /* Increase touch target sizes */
+    .category-card,
+    .item-card {
+        min-height: 12vmin;
+    }
+    
+    .method-card {
+        min-height: 8vmin;
+    }
+    
+    .modal-close,
+    .attract-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-img,
+    .header-logo {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .attract-layer,
+    .app-header,
+    .breadcrumb,
+    .offline-indicator,
+    .modal-overlay,
+    .modal-close {
+        display: none !important;
+    }
+    
+    .main-content {
+        overflow: visible;
+        padding: 0;
+    }
+    
+    .item-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--mql-gray-300);
+    }
+}

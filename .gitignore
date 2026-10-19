@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+package.json
+
+# Build outputs
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large media files (add actual content later)
+# assets/videos/*.mp4
+# assets/demos/*.mp4
+# assets/demos/*.pdf

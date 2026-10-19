@@ -1,0 +1,305 @@
+/* Attraction Screen Styles */
+
+.attract-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mql-navy);
+    cursor: pointer;
+    transition: opacity 0.7s ease;
+}
+
+.attract-layer.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Background Effects */
+.attract-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.attract-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        var(--mql-navy) 0%,
+        var(--mql-navy-2) 50%,
+        var(--mql-blue) 100%
+    );
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.attract-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+        radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.2) 0%, transparent 50%),
+        radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,0.4) 0%, transparent 50%),
+        radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
+        radial-gradient(2px 2px at 90% 50%, rgba(255,255,255,0.2) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: particleFloat 20s ease infinite;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Content */
+.attract-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vmin;
+    padding: 4vmin;
+    text-align: center;
+}
+
+/* Logo */
+.attract-logo {
+    position: relative;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.logo-img {
+    max-height: 20vmin;
+    max-width: 60vmin;
+    object-fit: contain;
+    filter: drop-shadow(0 0 2vmin rgba(255, 255, 255, 0.3));
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(
+        circle,
+        rgba(43, 125, 233, 0.4) 0%,
+        transparent 70%
+    );
+    animation: glowPulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1vmin);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Messages */
+.attract-message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+}
+
+.attract-welcome {
+    font-size: 4vmin;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+.attract-tagline {
+    font-size: 5vmin;
+    font-weight: 700;
+    color: var(--mql-white);
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease 0.5s both;
+    min-height: 1.2em;
+    transition: opacity 0.5s ease;
+}
+
+.attract-tagline.fade-out {
+    opacity: 0;
+}
+
+/* Feature Badges */
+.attract-features {
+    display: flex;
+    gap: 3vmin;
+    margin-top: 2vmin;
+    animation: fadeInUp 1s ease 0.7s both;
+}
+
+.feature-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vmin;
+    padding: 2vmin;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5vmin;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-base);
+}
+
+.feature-badge:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-0.5vmin);
+}
+
+.feature-badge i {
+    font-size: 3.5vmin;
+    color: var(--mql-white);
+}
+
+.feature-badge span {
+    font-size: 1.6vmin;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Touch Hint */
+.attract-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vmin;
+    margin-top: 4vmin;
+    animation: fadeInUp 1s ease 0.9s both, hintPulse 2s ease-in-out 2s infinite;
+}
+
+.hint-icon {
+    font-size: 4vmin;
+    color: var(--mql-white);
+    animation: tapAnimation 2s ease-in-out infinite;
+}
+
+.hint-text {
+    font-size: 2.5vmin;
+    font-weight: 600;
+    color: var(--mql-white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(3vmin);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hintPulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes tapAnimation {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+/* Video Background Option */
+.attract-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.attract-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 37, 64, 0.7);
+    z-index: 1;
+}
+
+/* Alternative: Animated Grid Pattern */
+.attract-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(50px, 50px);
+    }
+}

@@ -1,0 +1,348 @@
+{
+  "categories": [
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "color": "#0a2540",
+      "icon": "building",
+      "items": [
+        {
+          "id": "field-tools",
+          "title": "Store Audit / Field Tools",
+          "description": "Mobile-first facility evaluation and audit tools for field teams",
+          "icon": "clipboard-check",
+          "methods": [
+            {
+              "type": "device",
+              "platform": "iPad/iPhone",
+              "label": "Demo on Device",
+              "icon": "tablet-alt",
+              "requiresInternet": true,
+              "url": "https://noa-field-tools.vercel.app"
+            },
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Store Audit via NOA",
+              "icon": "external-link-alt",
+              "requiresInternet": true,
+              "url": "https://live.myqiosk.com"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Demo Video",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/field-tools-demo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "maintenance",
+          "title": "Maintenance Management",
+          "description": "Comprehensive work order and preventive maintenance system",
+          "icon": "tools",
+          "methods": [
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Open in NOA",
+              "icon": "external-link-alt",
+              "requiresInternet": true,
+              "url": "https://live.myqiosk.com"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Overview",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/maintenance-demo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "budgets",
+          "title": "Budgets",
+          "description": "Financial planning and budget management tools",
+          "icon": "calculator",
+          "methods": [
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Open in NOA",
+              "icon": "external-link-alt",
+              "requiresInternet": true,
+              "url": "https://live.myqiosk.com"
+            },
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Slides",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/budgets-slides.pdf"
+            }
+          ]
+        },
+        {
+          "id": "contracts",
+          "title": "Contracts",
+          "description": "Contract lifecycle management and automation",
+          "icon": "file-contract",
+          "methods": [
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Open in NOA",
+              "icon": "external-link-alt",
+              "requiresInternet": true,
+              "url": "https://live.myqiosk.com"
+            },
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Slides",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/contracts-slides.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "customer-xp",
+      "name": "Customer XP",
+      "color": "#28a745",
+      "icon": "users",
+      "items": [
+        {
+          "id": "myqiosk",
+          "title": "MyQiosk",
+          "description": "Self-service kiosk solution for customer interactions",
+          "icon": "tablet",
+          "methods": [
+            {
+              "type": "link",
+              "platform": "iPhone/Promo Card",
+              "label": "View Demo",
+              "icon": "mobile-alt",
+              "requiresInternet": true,
+              "url": "https://live.myqiosk.com"
+            },
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Signup Website",
+              "icon": "globe",
+              "requiresInternet": true,
+              "url": "https://live.myqiosk.com"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Demo",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/myqiosk-demo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "myqiosk-live",
+          "title": "MyQiosk Live",
+          "description": "Live video assistance for customer support",
+          "icon": "video",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/myqiosk-live-slides.pdf"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Demo",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/myqiosk-live-demo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "access-plus",
+          "title": "Access+",
+          "description": "Digital wallet and mobile access control",
+          "icon": "key",
+          "methods": [
+            {
+              "type": "device",
+              "platform": "iPhone",
+              "label": "View on Device",
+              "icon": "mobile-alt",
+              "requiresInternet": false,
+              "note": "Digital wallet saved offline"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Demo",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/access-plus-demo.mp4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "standalone",
+      "name": "Standalone Services",
+      "color": "#6f42c1",
+      "icon": "cube",
+      "items": [
+        {
+          "id": "revenue-pro",
+          "title": "Revenue Pro",
+          "description": "Advanced revenue management and pricing optimization",
+          "icon": "chart-line",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Slides",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/revenue-pro-slides.pdf"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Demo",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/revenue-pro-demo.mp4"
+            },
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Open in NOA",
+              "icon": "external-link-alt",
+              "requiresInternet": true,
+              "url": "https://live.myqiosk.com"
+            }
+          ]
+        },
+        {
+          "id": "noaweb",
+          "title": "NOAWEB",
+          "description": "Complete website and online presence management",
+          "icon": "globe",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Slides",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/noaweb-slides.pdf"
+            },
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "View AAAA Sample Site",
+              "icon": "external-link-alt",
+              "requiresInternet": true,
+              "url": "https://aaaaselfstorage.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "management",
+      "name": "Management Services",
+      "color": "#fd7e14",
+      "icon": "cogs",
+      "items": [
+        {
+          "id": "full-service",
+          "title": "Full Service",
+          "description": "Complete property management solution",
+          "icon": "briefcase",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/full-service-slides.pdf"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Overview",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/full-service-demo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "remote-management",
+          "title": "Remote Management",
+          "description": "Remote property monitoring and management",
+          "icon": "desktop",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/remote-mgmt-slides.pdf"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Overview",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/remote-mgmt-demo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "noa-plus",
+          "title": "NOA+ Self Management",
+          "description": "Self-service management tools for owners",
+          "icon": "user-cog",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "assets/demos/noa-plus-slides.pdf"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Overview",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/noa-plus-demo.mp4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

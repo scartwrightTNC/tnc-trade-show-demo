@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="TNC Trade Show Demo - Interactive showcase of our solutions">
+    <meta name="theme-color" content="#0a2540">
+    <title>TNC Trade Show Demo</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/attract.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <!-- Attraction Screen Layer -->
+    <div id="attractLayer" class="attract-layer">
+        <div class="attract-background">
+            <div class="attract-gradient"></div>
+            <div class="attract-particles"></div>
+        </div>
+        
+        <div class="attract-content">
+            <div class="attract-logo">
+                <img src="assets/images/tnc-logo.svg" alt="TNC" class="logo-img">
+                <div class="logo-glow"></div>
+            </div>
+            
+            <div class="attract-message-container">
+                <div class="attract-welcome">Welcome to</div>
+                <div class="attract-tagline" id="attractTagline">The Future of Self-Storage Management</div>
+            </div>
+            
+            <div class="attract-features">
+                <div class="feature-badge">
+                    <i class="fas fa-building"></i>
+                    <span>Enterprise</span>
+                </div>
+                <div class="feature-badge">
+                    <i class="fas fa-users"></i>
+                    <span>Customer XP</span>
+                </div>
+                <div class="feature-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Revenue Pro</span>
+                </div>
+            </div>
+            
+            <div class="attract-hint">
+                <div class="hint-icon">
+                    <i class="fas fa-hand-pointer"></i>
+                </div>
+                <div class="hint-text">Touch to Begin</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <img src="assets/images/tnc-logo.svg" alt="TNC" class="header-logo">
+                <h1 class="header-title">Trade Show Demo</h1>
+                <button id="attractBtn" class="attract-btn" title="Return to Attraction Screen">
+                    <i class="fas fa-tv"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" id="breadcrumb">
+            <button class="breadcrumb-item" data-level="0">
+                <i class="fas fa-home"></i> Home
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="mainContent">
+            <!-- Categories will be dynamically loaded here -->
+        </main>
+
+        <!-- Demo Detail Modal -->
+        <div id="demoModal" class="demo-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-body" id="modalBody">
+                    <!-- Demo details loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Offline Indicator -->
+        <div id="offlineIndicator" class="offline-indicator" style="display: none;">
+            <i class="fas fa-wifi-slash"></i>
+            <span>Offline Mode</span>
+        </div>
+
+        <!-- QR Code Modal -->
+        <div id="qrModal" class="qr-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="qrClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-body">
+                    <h2>Scan to View on Mobile</h2>
+                    <div id="qrCode"></div>
+                    <p class="qr-url" id="qrUrl"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/offline.js"></script>
+    <script src="js/attract-mode.js"></script>
+    <script src="js/menu-system.js"></script>
+    <script src="js/demo-launcher.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
