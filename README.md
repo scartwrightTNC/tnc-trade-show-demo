@@ -2,6 +2,8 @@
 
 Interactive demo application for trade show booths showcasing TNC's feature offerings.
 
+**Live Demo:** https://tnc-trade-show-demo.vercel.app
+
 ## Features
 
 - Responsive design for touch screens, mobile, and desktop
