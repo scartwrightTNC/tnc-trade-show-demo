@@ -32,7 +32,15 @@ class AttractionScreen {
             if (badge) {
                 e.stopPropagation();
                 const category = badge.dataset.category;
-                this.exitToCategory(category);
+                const item = badge.dataset.item;
+                
+                if (item) {
+                    this.exitToItem(item);
+                } else if (category) {
+                    this.exitToCategory(category);
+                } else {
+                    this.exit();
+                }
             } else {
                 this.exit();
             }
@@ -69,6 +77,40 @@ class AttractionScreen {
                         window.analytics.track('attraction_category_click', {
                             category: categoryId
                         });
+                    }
+                }
+            }
+        }, 300);
+    }
+    
+    exitToItem(itemId) {
+        this.exit();
+        
+        // Navigate to specific item after a brief delay
+        setTimeout(() => {
+            if (window.menuSystem && window.menuSystem.demoData) {
+                // Find the item and its category
+                for (const category of window.menuSystem.demoData.categories) {
+                    const item = category.items.find(i => i.id === itemId);
+                    if (item) {
+                        // Navigate to category first
+                        window.menuSystem.renderCategory(category);
+                        
+                        // Then open the item detail
+                        setTimeout(() => {
+                            if (window.demoLauncher) {
+                                window.demoLauncher.showDemo(item, category);
+                                
+                                // Track direct navigation from attraction screen
+                                if (window.analytics) {
+                                    window.analytics.track('attraction_item_click', {
+                                        item: itemId,
+                                        category: category.id
+                                    });
+                                }
+                            }
+                        }, 300);
+                        break;
                     }
                 }
             }

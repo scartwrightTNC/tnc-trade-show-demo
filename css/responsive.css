@@ -164,8 +164,10 @@
     }
     
     .attract-features {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 2vmin;
+        max-width: 80vw;
     }
     
     .feature-badge {
