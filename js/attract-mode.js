@@ -26,7 +26,17 @@ class AttractionScreen {
         this.startTaglineRotation();
         
         // Touch/click to enter
-        this.layer.addEventListener('click', () => this.exit());
+        this.layer.addEventListener('click', (e) => {
+            // Check if clicked on a feature badge
+            const badge = e.target.closest('.feature-badge');
+            if (badge) {
+                e.stopPropagation();
+                const category = badge.dataset.category;
+                this.exitToCategory(category);
+            } else {
+                this.exit();
+            }
+        });
         
         // Reset idle timer on any interaction
         ['pointerdown', 'touchstart', 'click', 'mousemove'].forEach(event => {
@@ -42,6 +52,27 @@ class AttractionScreen {
         
         // Start idle timer
         this.resetIdleTimer();
+    }
+    
+    exitToCategory(categoryId) {
+        this.exit();
+        
+        // Navigate to category after a brief delay to allow transition
+        setTimeout(() => {
+            if (window.menuSystem && window.menuSystem.demoData) {
+                const category = window.menuSystem.demoData.categories.find(c => c.id === categoryId);
+                if (category) {
+                    window.menuSystem.renderCategory(category);
+                    
+                    // Track direct navigation from attraction screen
+                    if (window.analytics) {
+                        window.analytics.track('attraction_category_click', {
+                            category: categoryId
+                        });
+                    }
+                }
+            }
+        }, 300);
     }
     
     startTaglineRotation() {

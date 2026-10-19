@@ -187,11 +187,18 @@
     border-radius: 1.5vmin;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all var(--transition-base);
+    cursor: pointer;
+    user-select: none;
 }
 
 .feature-badge:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-0.5vmin);
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-0.5vmin) scale(1.05);
+    box-shadow: 0 0.5vmin 2vmin rgba(255, 255, 255, 0.2);
+}
+
+.feature-badge:active {
+    transform: translateY(0) scale(0.98);
 }
 
 .feature-badge i {
