@@ -11,8 +11,8 @@ class AttractionScreen {
         this.taglineInterval = null;
         
         this.taglines = [
-            'The Future of Self-Storage Management',
-            'Enterprise Solutions for Modern Operations',
+            'Self Storage Solutions',
+            'Enterprise Management Platform',
             'Customer Experience Reimagined',
             'Revenue Optimization Made Simple',
             'Comprehensive Management Services'
