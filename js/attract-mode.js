@@ -65,9 +65,11 @@ class AttractionScreen {
     exitToCategory(categoryId) {
         this.exit();
         
-        // Navigate to category after a brief delay to allow transition
-        setTimeout(() => {
-            if (window.menuSystem && window.menuSystem.demoData) {
+        // Wait for menu system to be ready
+        const waitForMenu = setInterval(() => {
+            if (window.menuSystem && window.menuSystem.dataLoaded) {
+                clearInterval(waitForMenu);
+                
                 const category = window.menuSystem.demoData.categories.find(c => c.id === categoryId);
                 if (category) {
                     window.menuSystem.renderCategory(category);
@@ -80,15 +82,20 @@ class AttractionScreen {
                     }
                 }
             }
-        }, 300);
+        }, 100);
+        
+        // Timeout after 5 seconds
+        setTimeout(() => clearInterval(waitForMenu), 5000);
     }
     
     exitToItem(itemId) {
         this.exit();
         
-        // Navigate to specific item after a brief delay
-        setTimeout(() => {
-            if (window.menuSystem && window.menuSystem.demoData) {
+        // Wait for menu system to be ready
+        const waitForMenu = setInterval(() => {
+            if (window.menuSystem && window.menuSystem.dataLoaded) {
+                clearInterval(waitForMenu);
+                
                 // Find the item and its category
                 for (const category of window.menuSystem.demoData.categories) {
                     const item = category.items.find(i => i.id === itemId);
@@ -114,7 +121,10 @@ class AttractionScreen {
                     }
                 }
             }
-        }, 300);
+        }, 100);
+        
+        // Timeout after 5 seconds
+        setTimeout(() => clearInterval(waitForMenu), 5000);
     }
     
     startTaglineRotation() {

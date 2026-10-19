@@ -7,6 +7,7 @@ class MenuSystem {
         this.currentView = 'categories';
         this.currentCategory = null;
         this.demoData = null;
+        this.dataLoaded = false;
         this.navigationStack = [];
         
         this.init();
@@ -43,10 +44,12 @@ class MenuSystem {
         try {
             const response = await fetch('data/demos.json');
             this.demoData = await response.json();
+            this.dataLoaded = true;
         } catch (error) {
             console.error('Failed to load demo data:', error);
             // Fallback to empty data
             this.demoData = { categories: [] };
+            this.dataLoaded = true; // Still mark as loaded even if empty
         }
     }
     
