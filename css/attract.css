@@ -170,16 +170,20 @@
 
 /* Feature Badges */
 .attract-features {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 3vmin;
     margin-top: 2vmin;
     animation: fadeInUp 1s ease 0.7s both;
+    width: 100%;
+    max-width: 120vmin;
 }
 
 .feature-badge {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1vmin;
     padding: 2vmin;
     background: rgba(255, 255, 255, 0.1);
@@ -189,6 +193,7 @@
     transition: all var(--transition-base);
     cursor: pointer;
     user-select: none;
+    min-width: 0;
 }
 
 .feature-badge:hover {

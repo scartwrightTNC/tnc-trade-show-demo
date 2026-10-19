@@ -164,16 +164,9 @@
     }
     
     .attract-features {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 2vmin;
-        max-width: 85vw;
-    }
-    
-    .attract-features .feature-badge:last-child {
-        grid-column: 1 / -1;
-        max-width: 50%;
-        margin: 0 auto;
+        max-width: 90vw;
     }
     
     /* For very small screens, stack all badges */
@@ -181,10 +174,6 @@
         .attract-features {
             grid-template-columns: 1fr;
             gap: 1.5vmin;
-        }
-        
-        .attract-features .feature-badge:last-child {
-            max-width: 100%;
         }
     }
     
@@ -281,6 +270,8 @@
     
     .attract-features {
         margin-top: 1vmin;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5vmin;
     }
     
     .feature-badge {
