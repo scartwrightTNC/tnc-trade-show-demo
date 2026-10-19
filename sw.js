@@ -22,13 +22,31 @@ const urlsToCache = [
   'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js'
 ];
 
+// Optional resources - cache but don't fail if missing
+const optionalUrls = [
+  '/assets/images/tnc-logo.svg',
+  '/assets/images/favicon.svg',
+  '/assets/images/icon-192.svg',
+  '/assets/images/icon-512.svg'
+];
+
 // Install event - cache resources
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
         console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+        // Cache required resources
+        return cache.addAll(urlsToCache).then(() => {
+          // Try to cache optional resources, but don't fail if missing
+          return Promise.allSettled(
+            optionalUrls.map(url => 
+              cache.add(url).catch(err => 
+                console.log('Optional resource not cached:', url)
+              )
+            )
+          );
+        });
       })
       .then(() => self.skipWaiting())
   );

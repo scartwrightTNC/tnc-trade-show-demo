@@ -85,7 +85,7 @@ class DemoLauncher {
         this.modal.classList.remove('show');
     }
     
-    launchDemo(item, method, category) {
+    async launchDemo(item, method, category) {
         // Track demo launch
         if (window.analytics) {
             window.analytics.trackDemoLaunch(item.id, method, {
@@ -105,22 +105,22 @@ class DemoLauncher {
             case 'device':
             case 'link':
                 this.launchExternalLink(method);
+                // Close modal after external link launch
+                setTimeout(() => this.closeModal(), 500);
                 break;
             case 'video':
-                this.launchVideo(method);
+                await this.launchVideo(method);
                 break;
             case 'slides':
-                this.launchSlides(method);
+                await this.launchSlides(method);
                 break;
             case 'iframe':
                 this.launchIframe(method);
                 break;
             default:
                 this.launchExternalLink(method);
+                setTimeout(() => this.closeModal(), 500);
         }
-        
-        // Close modal after launch
-        setTimeout(() => this.closeModal(), 500);
     }
     
     launchExternalLink(method) {
@@ -133,7 +133,15 @@ class DemoLauncher {
         }
     }
     
-    launchVideo(method) {
+    async launchVideo(method) {
+        // Check if video file exists
+        const videoExists = await this.checkFileExists(method.src);
+        
+        if (!videoExists) {
+            this.showContentPlaceholder('Video', method);
+            return;
+        }
+        
         // Create video player modal
         const videoHtml = `
             <div class="demo-header">
@@ -141,12 +149,13 @@ class DemoLauncher {
                     <div class="demo-title">${method.platform} Demo</div>
                 </div>
             </div>
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 1vmin;">
                 <video 
                     controls 
                     autoplay 
                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
                     src="${method.src}"
+                    onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#fff;font-size:2vmin;\\'>Video not available</div>'"
                 >
                     Your browser does not support the video tag.
                 </video>
@@ -156,7 +165,15 @@ class DemoLauncher {
         this.modalBody.innerHTML = videoHtml;
     }
     
-    launchSlides(method) {
+    async launchSlides(method) {
+        // Check if slides file exists
+        const slidesExist = await this.checkFileExists(method.src);
+        
+        if (!slidesExist) {
+            this.showContentPlaceholder('Presentation', method);
+            return;
+        }
+        
         // Show slides presentation
         const slidesHtml = `
             <div class="demo-header">
@@ -174,6 +191,40 @@ class DemoLauncher {
         `;
         
         this.modalBody.innerHTML = slidesHtml;
+    }
+    
+    async checkFileExists(url) {
+        if (!url) return false;
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            return response.ok;
+        } catch (e) {
+            return false;
+        }
+    }
+    
+    showContentPlaceholder(type, method) {
+        const placeholderHtml = `
+            <div class="demo-header">
+                <div class="demo-title-section">
+                    <div class="demo-title">${method.platform}</div>
+                </div>
+            </div>
+            <div style="text-align: center; padding: 6vmin 4vmin; background: var(--mql-gray-100); border-radius: 1.5vmin;">
+                <i class="fas fa-${type === 'Video' ? 'video' : 'file-powerpoint'}" 
+                   style="font-size: 10vmin; color: var(--mql-gray-400); margin-bottom: 2vmin;"></i>
+                <h3 style="font-size: 2.5vmin; margin-bottom: 1vmin; color: var(--mql-gray-800);">
+                    ${type} Coming Soon
+                </h3>
+                <p style="font-size: 1.8vmin; color: var(--mql-gray-600);">
+                    This ${type.toLowerCase()} content is being prepared.<br>
+                    Please check back later or try another demo method.
+                </p>
+                ${method.note ? `<p style="font-size: 1.6vmin; color: var(--mql-gray-500); margin-top: 2vmin; font-style: italic;">${method.note}</p>` : ''}
+            </div>
+        `;
+        
+        this.modalBody.innerHTML = placeholderHtml;
     }
     
     launchIframe(method) {

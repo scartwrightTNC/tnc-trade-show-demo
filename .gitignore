@@ -38,3 +38,5 @@ npm-debug.log*
 # assets/videos/*.mp4
 # assets/demos/*.mp4
 # assets/demos/*.pdf
+
+.vercel
