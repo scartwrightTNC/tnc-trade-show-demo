@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v1';
+const CACHE_NAME = 'trade-show-demo-v2';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install
@@ -15,6 +15,7 @@ const urlsToCache = [
   '/js/attract-mode.js',
   '/js/menu-system.js',
   '/js/demo-launcher.js',
+  '/js/lead-capture.js',
   '/js/app.js',
   '/data/demos.json',
   '/manifest.json',

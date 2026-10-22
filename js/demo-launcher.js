@@ -67,7 +67,22 @@ class DemoLauncher {
                 <h3 style="font-size: 2.2vmin; margin-bottom: 2vmin; color: var(--mql-gray-800);">Available Demo Methods:</h3>
                 ${methodsHtml}
             </div>
+            
+            <button id="sendInfoBtn" class="lead-submit" style="width: 100%; margin-top: var(--space-xl);">
+                <i class="fas fa-paper-plane"></i> Send me more info
+            </button>
         `;
+        
+        // Wire up lead capture for this product
+        const sendInfoBtn = this.modalBody.querySelector('#sendInfoBtn');
+        if (sendInfoBtn) {
+            sendInfoBtn.addEventListener('click', () => {
+                this.closeModal();
+                if (window.leadCapture) {
+                    window.leadCapture.open(item);
+                }
+            });
+        }
         
         // Add click handlers to method cards
         this.modalBody.querySelectorAll('.method-card').forEach(card => {

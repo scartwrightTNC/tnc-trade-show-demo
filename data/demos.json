@@ -94,6 +94,14 @@
           "methods": [
             {
               "type": "link",
+              "platform": "Salesforce",
+              "label": "Contracts Enterprise Dashboard",
+              "icon": "external-link-alt",
+              "requiresInternet": true,
+              "url": "https://noa--fullcopy.sandbox.lightning.force.com/lightning/n/Contracts_Enterprise_Dashboard"
+            },
+            {
+              "type": "link",
               "platform": "Web Browser",
               "label": "Open in NOA",
               "icon": "external-link-alt",
