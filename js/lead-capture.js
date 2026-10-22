@@ -7,7 +7,7 @@
 
 class LeadCapture {
     constructor() {
-        this.endpoint = 'https://noa--fullcopy.sandbox.my.salesforce-sites.com/IncomingSMS/services/apexrest/tradeshow/lead';
+        this.endpoint = 'https://noa.my.salesforce-sites.com/IncomingSMS/services/apexrest/tradeshow/lead';
         this.source = 'tnc-trade-show-demo';
         this.queueKey = 'tnc-lead-queue';
         this.emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
