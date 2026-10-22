@@ -12,6 +12,8 @@ class LeadCapture {
         this.queueKey = 'tnc-lead-queue';
         this.emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+        this._sending = new Set(); // entry ids currently being posted
+
         this.fab = document.getElementById('leadFab');
         this.modal = document.getElementById('leadModal');
         this.form = document.getElementById('leadForm');
@@ -37,8 +39,13 @@ class LeadCapture {
             this.submit();
         });
 
-        // Flush queued leads when connectivity returns (and once on load)
+        // Flush queued leads when connectivity returns, once on load, and on a
+        // timer — navigator.onLine and the 'online' event are unreliable on
+        // kiosk networks, so the interval is the real safety net.
         window.addEventListener('online', () => this.flushQueue());
+        window.addEventListener('pageshow', () => this.flushQueue());
+        setInterval(() => this.flushQueue(), 60000);
+        this.updateBadge();
         this.flushQueue();
     }
 
@@ -114,18 +121,24 @@ class LeadCapture {
 
         this.setBusy(true);
 
+        // Write to the on-disk queue first — if the kiosk loses power or the
+        // network mid-send, the lead is never lost.
+        const entry = this.enqueue(payload);
+
         if (!navigator.onLine) {
-            this.enqueue(payload);
             this.setBusy(false);
-            this.setStatus('You\'re offline — we\'ll send the info as soon as the kiosk reconnects.', 'ok');
+            this.setStatus('You\'re offline — saved, and we\'ll send it as soon as the kiosk reconnects.', 'ok');
             setTimeout(() => this.close(), 2500);
             return;
         }
 
+        this._sending.add(entry.id);
         const result = await this.post(payload);
+        this._sending.delete(entry.id);
         this.setBusy(false);
 
         if (result.ok) {
+            this.removeFromQueue(entry.id);
             this.setStatus('Done! Check your ' +
                 (result.channel === 'SMS' ? 'messages' : 'inbox') +
                 ' for the info link.', 'ok');
@@ -136,7 +149,13 @@ class LeadCapture {
                 });
             }
             setTimeout(() => this.close(), 3000);
+        } else if (!result.rejected) {
+            // Network-type failure — keep it queued, retry happens on the timer.
+            this.setStatus('Can\'t reach the server right now — saved, and we\'ll send it automatically once connected.', 'ok');
+            setTimeout(() => this.close(), 3000);
         } else {
+            // Server rejected the payload — drop it, retrying won't help.
+            this.removeFromQueue(entry.id);
             this.setStatus(result.error || 'Something went wrong — please try again.', 'error');
         }
     }
@@ -150,45 +169,91 @@ class LeadCapture {
             });
             const data = await response.json().catch(() => ({}));
             if (!response.ok) {
-                return { ok: false, error: data.error || 'Request failed (' + response.status + ')' };
+                return {
+                    ok: false,
+                    rejected: true, // server answered — don't retry from queue
+                    error: data.error || 'Request failed (' + response.status + ')'
+                };
             }
-            return { ok: true, channel: data.channel, sent: data.sent, queued: false };
+            return { ok: true, channel: data.channel, sent: data.sent };
         } catch (e) {
-            return { ok: false, error: 'Network error — please try again.' };
+            return { ok: false, rejected: false, error: 'Network error — please try again.' };
         }
+    }
+
+    getQueue() {
+        try {
+            return JSON.parse(localStorage.getItem(this.queueKey) || '[]');
+        } catch (e) {
+            return [];
+        }
+    }
+
+    setQueue(queue) {
+        try {
+            localStorage.setItem(this.queueKey, JSON.stringify(queue));
+        } catch (e) {
+            console.error('Failed to update lead queue:', e);
+        }
+        this.updateBadge();
     }
 
     enqueue(payload) {
-        try {
-            const queue = JSON.parse(localStorage.getItem(this.queueKey) || '[]');
-            queue.push({ payload: payload, queuedAt: Date.now() });
-            localStorage.setItem(this.queueKey, JSON.stringify(queue));
-        } catch (e) {
-            console.error('Failed to queue lead:', e);
-        }
+        const entry = {
+            id: Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+            payload: payload,
+            queuedAt: Date.now()
+        };
+        const queue = this.getQueue();
+        queue.push(entry);
+        this.setQueue(queue);
+        return entry;
+    }
+
+    removeFromQueue(id) {
+        this.setQueue(this.getQueue().filter(e => e.id !== id));
     }
 
     async flushQueue() {
-        if (!navigator.onLine) return;
-
-        let queue;
-        try {
-            queue = JSON.parse(localStorage.getItem(this.queueKey) || '[]');
-        } catch (e) {
-            queue = [];
-        }
-        if (queue.length === 0) return;
-
-        const remaining = [];
-        for (const entry of queue) {
-            const result = await this.post(entry.payload);
-            if (!result.ok) remaining.push(entry);
-        }
+        if (this._flushing) return;
+        this._flushing = true;
 
         try {
-            localStorage.setItem(this.queueKey, JSON.stringify(remaining));
-        } catch (e) {
-            console.error('Failed to update lead queue:', e);
+            const queue = this.getQueue();
+            if (queue.length === 0) return;
+
+            // Track which entries are done rather than rewriting the queue —
+            // entries enqueued while the flush is in flight must survive.
+            const done = new Set();
+            for (const entry of queue) {
+                if (this._sending.has(entry.id)) continue;
+                this._sending.add(entry.id);
+                const result = await this.post(entry.payload);
+                this._sending.delete(entry.id);
+                // Success or a server rejection both end the entry; only
+                // network-type failures stay queued for the next retry.
+                if (result.ok || result.rejected) {
+                    done.add(entry.id);
+                }
+            }
+
+            this.setQueue(this.getQueue().filter(e => !done.has(e.id)));
+        } finally {
+            this._flushing = false;
+        }
+    }
+
+    updateBadge() {
+        const count = this.getQueue().length;
+        let badge = this.fab.querySelector('.lead-fab-badge');
+        if (count > 0 && !badge) {
+            badge = document.createElement('span');
+            badge.className = 'lead-fab-badge';
+            this.fab.appendChild(badge);
+        }
+        if (badge) {
+            badge.textContent = count;
+            badge.style.display = count > 0 ? 'flex' : 'none';
         }
     }
 
