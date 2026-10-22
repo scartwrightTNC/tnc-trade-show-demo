@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v3';
+const CACHE_NAME = 'trade-show-demo-v4';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install

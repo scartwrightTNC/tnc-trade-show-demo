@@ -9,6 +9,10 @@ class LeadCapture {
     constructor() {
         this.endpoint = 'https://noa.my.salesforce-sites.com/IncomingSMS/services/apexrest/tradeshow/lead';
         this.source = 'tnc-trade-show-demo';
+        // Which trade show this kiosk is at — set per device via a
+        // ?show=<slug> URL param (bookmark it). Null when unset; Salesforce
+        // stores whatever slug arrives.
+        this.show = new URLSearchParams(window.location.search).get('show');
         this.queueKey = 'tnc-lead-queue';
         this.emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -116,6 +120,7 @@ class LeadCapture {
             productId: productId,
             productTitle: productTitle,
             source: this.source,
+            show: this.show,
             website: this.honeypot.value // honeypot — bots fill it, humans don't see it
         };
 
