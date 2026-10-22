@@ -101,6 +101,15 @@ class TradeShowApp {
     
     setupKeyboardShortcuts() {
         document.addEventListener('keydown', (e) => {
+            // Ignore shortcuts while typing in a form field or while the
+            // lead capture modal is open
+            const tag = e.target.tagName;
+            const leadModal = document.getElementById('leadModal');
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' ||
+                (leadModal && leadModal.classList.contains('show'))) {
+                return;
+            }
+
             // ESC - Return to attract mode
             if (e.key === 'Escape' && !window.attractionScreen.isActive) {
                 window.attractionScreen.activate();
