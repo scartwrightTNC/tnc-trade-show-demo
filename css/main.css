@@ -739,6 +739,16 @@ html, body {
     box-shadow: 0 0 0 3px rgba(43, 125, 233, 0.15);
 }
 
+.lead-name-row {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.lead-name-row .lead-input {
+    flex: 1;
+    min-width: 0;
+}
+
 .lead-honeypot {
     position: absolute;
     left: -9999px;

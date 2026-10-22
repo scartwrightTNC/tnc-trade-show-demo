@@ -22,6 +22,8 @@ class LeadCapture {
         this.modal = document.getElementById('leadModal');
         this.form = document.getElementById('leadForm');
         this.contactInput = document.getElementById('leadContact');
+        this.firstNameInput = document.getElementById('leadFirstName');
+        this.lastNameInput = document.getElementById('leadLastName');
         this.productSelect = document.getElementById('leadProduct');
         this.honeypot = document.getElementById('leadWebsite');
         this.status = document.getElementById('leadStatus');
@@ -59,7 +61,7 @@ class LeadCapture {
         this.setStatus('', '');
         this.form.reset();
         this.modal.classList.add('show');
-        this.contactInput.focus();
+        this.firstNameInput.focus();
     }
 
     close() {
@@ -96,7 +98,8 @@ class LeadCapture {
         return contact.replace(/[^0-9]/g, '').length >= 7 ? 'SMS' : null;
     }
 
-    validate(contact) {
+    validate(contact, firstName, lastName) {
+        if (!firstName || !lastName) return 'Please enter your first and last name.';
         if (!contact) return 'Please enter your email address or mobile number.';
         if (!this.detectChannel(contact)) {
             return 'That doesn\'t look like an email address or phone number.';
@@ -106,10 +109,12 @@ class LeadCapture {
 
     async submit() {
         const contact = this.contactInput.value.trim();
+        const firstName = this.firstNameInput.value.trim();
+        const lastName = this.lastNameInput.value.trim();
         const productId = this.productSelect.value;
         const productTitle = this.productSelect.options[this.productSelect.selectedIndex]?.text || '';
 
-        const error = this.validate(contact);
+        const error = this.validate(contact, firstName, lastName);
         if (error) {
             this.setStatus(error, 'error');
             return;
@@ -117,6 +122,8 @@ class LeadCapture {
 
         const payload = {
             contact: contact,
+            firstName: firstName,
+            lastName: lastName,
             productId: productId,
             productTitle: productTitle,
             source: this.source,
