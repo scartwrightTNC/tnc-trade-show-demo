@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOAWEB � Packed Planet</title>
+    <title>NOAWEB — Packed Planet</title>
     <link rel="stylesheet" href="../vendor/reveal/css/reveal.css">
     <link rel="stylesheet" href="../vendor/reveal/css/theme-packed-planet.css">
 </head>
@@ -11,37 +11,64 @@
 <div class="reveal">
     <div class="slides">
 
-        <!-- Title slide -->
         <section>
-            <img class="slide-logo" src="../assets/images/packed-planet-logo.png" alt="Packed Planet">
-            <div class="kicker">Product Overview</div>
+            <img class="slide-logo" src="img/noaweb/s01-0.png" alt="NOAWEB" style="max-height:3em; background:#fff; padding:0.2em 0.6em; border-radius:0.4em;">
             <h1>NOAWEB</h1>
-            <p class="subdued">Complete website and online presence management</p>
+            <p class="subdued" style="font-size:0.8em;">Dynamic, responsive website with calls to action, search and fast load times — part of a nationally recognized site, with your custom branding.</p>
         </section>
 
-        <!--
-            CONTENT SLIDES � rebuild each PPTX slide here.
-            <section> per slide; class="fragment" on any element makes it
-            reveal on tap (the interactive "build" feel).
-        -->
         <section>
-            <h2>Highlights</h2>
+            <div class="kicker">Features</div>
+            <h2>Primary Features &amp; Benefits</h2>
             <ul>
-                <li class="fragment">First key point</li>
-                <li class="fragment">Second key point</li>
-                <li class="fragment">Third key point</li>
+                <li class="fragment">Responsive desktop &amp; mobile designs</li>
+                <li class="fragment">Self-service online rentals, reservations &amp; wait lists</li>
+                <li class="fragment">Automatic texting of access codes for unattended rentals</li>
+                <li class="fragment">Dynamic pricing &amp; promotions beyond Sitelink's capabilities</li>
+                <li class="fragment">Ongoing in-house SEO, support &amp; development</li>
             </ul>
-            <div class="pp-navhint">Swipe or tap to continue</div>
         </section>
 
-        <!-- CTA slide -->
+        <section>
+            <div class="kicker">Rental Flow</div>
+            <h2>Rented in Under 2 Minutes</h2>
+            <ul>
+                <li class="fragment">Customer picks a unit from the inventory list or map view</li>
+                <li class="fragment">Completes the rental online (or with our Sales Center)</li>
+                <li class="fragment">Signs the lease, submits ID and payment digitally</li>
+                <li class="fragment">Receives access code + self-service lock code by text or email</li>
+            </ul>
+            <p class="fragment accent" style="font-size:0.75em; margin-top:0.8em;">Skip the office — go straight to your new unit.</p>
+        </section>
+
+        <section>
+            <div class="kicker">Rentable Occupancy</div>
+            <h2>Pricing That Reacts Instantly</h2>
+            <ul>
+                <li class="fragment">RO = rentable occupancy — unrentable, reserved and pre-rented units removed from the equation</li>
+                <li class="fragment">Pricing changes instantly based on RO</li>
+                <li class="fragment">Specials change instantly based on RO</li>
+                <li class="fragment">Rent / Reserve / Hold availability changes based on RO</li>
+            </ul>
+            <p class="fragment subdued" style="font-size:0.6em; margin-top:0.6em;">"Compare Locally" can display the highest comparable local rate in place of in-store rates.</p>
+        </section>
+
+        <section>
+            <div class="kicker">Live Site</div>
+            <h2>The Customer Experience</h2>
+            <div class="pp-img-row">
+                <img class="fragment" src="img/noaweb/s07-0.png" alt="Rental page">
+                <img class="fragment" src="img/noaweb/s09-0.png" alt="Site experience">
+            </div>
+        </section>
+
         <section>
             <div class="kicker">Next Step</div>
             <h2>See it in action</h2>
-            <p class="subdued">Get the details sent to you, or explore it live.</p>
+            <p class="subdued">Get the details sent to you, or visit a live site.</p>
             <div class="pp-cta-row">
                 <button class="pp-cta" onclick="openLeadCapture()">Get More Info</button>
-                <button class="pp-cta secondary" onclick="openDemoLink('https://aaaaselfstorage.com')">Try the Live Demo</button>
+                <button class="pp-cta secondary" onclick="openDemoLink('https://aaaaselfstorage.com')">Visit a Live Site</button>
             </div>
         </section>
 
@@ -50,15 +77,9 @@
 <script src="../vendor/reveal/js/reveal.js"></script>
 <script>
     Reveal.initialize({
-        touch: true,
-        controls: true,
-        progress: true,
-        center: true,
-        hash: false
+        touch: true, controls: true, progress: true, center: true, hash: false
     });
 
-    // Opens the kiosk lead-capture form pre-selected to this product, then
-    // closes this presentation so the form is front and center.
     function openLeadCapture() {
         var p = window.parent;
         if (p && p.leadCapture) {

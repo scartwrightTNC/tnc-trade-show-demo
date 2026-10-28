@@ -149,6 +149,14 @@
               "url": "https://live.myqiosk.com"
             },
             {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/customer-xp.html"
+            },
+            {
               "type": "video",
               "platform": "Video",
               "label": "Watch Demo",
@@ -170,7 +178,7 @@
               "label": "View Presentation",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "slides/myqiosk-live.html"
+              "src": "slides/customer-xp.html"
             },
             {
               "type": "video",
@@ -188,6 +196,14 @@
           "description": "Digital wallet and mobile access control",
           "icon": "key",
           "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/customer-xp.html"
+            },
             {
               "type": "device",
               "platform": "iPhone",

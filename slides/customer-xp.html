@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer XP — Packed Planet</title>
+    <link rel="stylesheet" href="../vendor/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../vendor/reveal/css/theme-packed-planet.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <img class="slide-logo" src="img/customerxp/s01-0.png" alt="Customer XP" style="max-height:3em; background:#fff; padding:0.2em 0.6em; border-radius:0.4em;">
+            <h1>CUSTOMER XP</h1>
+            <p class="subdued" style="font-size:0.85em;">HUB Management Technologies — the tenant experience, end to end.</p>
+        </section>
+
+        <section>
+            <div class="kicker">In Their Hand</div>
+            <h2>A QR Code Is a Kiosk in Their Pocket</h2>
+            <ul>
+                <li class="fragment">Rent from your phone</li>
+                <li class="fragment">Pay from your phone</li>
+                <li class="fragment">Manage your account</li>
+                <li class="fragment">Leave reviews or send messages</li>
+            </ul>
+            <img class="pp-img fragment" style="max-height:38vh; margin-top:0.5em;" src="img/customerxp/s02-1.jpg" alt="Customer app">
+        </section>
+
+        <section>
+            <div class="kicker">Quick Access</div>
+            <h2>Everything One Tap Away</h2>
+            <ul>
+                <li class="fragment">Call, chat &amp; video across the top</li>
+                <li class="fragment">Rent a unit, leave a review, pay a bill</li>
+                <li class="fragment">Emergency line to on-call support</li>
+                <li class="fragment">"Happy" → Google review · "Not happy" → trackable QA case</li>
+            </ul>
+            <div class="pp-img-row" style="margin-top:0.5em;">
+                <img class="fragment" src="img/customerxp/s03-0.png" alt="Quick access buttons" style="max-height:36vh;">
+                <img class="fragment" src="img/customerxp/s03-1.png" alt="Common features" style="max-height:36vh;">
+            </div>
+        </section>
+
+        <section>
+            <div class="kicker">Digital Pass</div>
+            <h2>Access Code in the Wallet</h2>
+            <p class="subdued" style="font-size:0.75em;">Gate code, unit, balance and referral QR — right on the tenant's phone.</p>
+            <div class="pp-img-row">
+                <img class="fragment" src="img/customerxp/s06-0.png" alt="Digital tenant pass" style="max-height:52vh;">
+                <img class="fragment" src="img/customerxp/s06-1.png" alt="Pass details" style="max-height:52vh;">
+            </div>
+        </section>
+
+        <section>
+            <div class="kicker">Site View</div>
+            <h2>Interactive Facility Map</h2>
+            <img class="pp-img fragment" src="img/customerxp/s07-0.png" alt="Interactive unit map">
+        </section>
+
+        <section>
+            <div class="kicker">Next Step</div>
+            <h2>See it in action</h2>
+            <p class="subdued">Get the details sent straight to you.</p>
+            <div class="pp-cta-row">
+                <button class="pp-cta" onclick="openLeadCapture()">Get More Info</button>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script src="../vendor/reveal/js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        touch: true, controls: true, progress: true, center: true, hash: false
+    });
+
+    function openLeadCapture() {
+        var p = window.parent;
+        if (p && p.leadCapture) {
+            if (p.demoLauncher) p.demoLauncher.closeSlides();
+            p.leadCapture.open();
+        }
+    }
+</script>
+</body>
+</html>
