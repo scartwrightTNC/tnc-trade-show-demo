@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOAWEB — Packed Planet</title>
+    <link rel="stylesheet" href="../vendor/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../vendor/reveal/css/theme-packed-planet.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <!-- Title slide -->
+        <section>
+            <img class="slide-logo" src="../assets/images/packed-planet-logo.png" alt="Packed Planet">
+            <div class="kicker">Product Overview</div>
+            <h1>NOAWEB</h1>
+            <p class="subdued">Complete website and online presence management</p>
+        </section>
+
+        <!--
+            CONTENT SLIDES — rebuild each PPTX slide here.
+            <section> per slide; class="fragment" on any element makes it
+            reveal on tap (the interactive "build" feel).
+        -->
+        <section>
+            <h2>Highlights</h2>
+            <ul>
+                <li class="fragment">First key point</li>
+                <li class="fragment">Second key point</li>
+                <li class="fragment">Third key point</li>
+            </ul>
+            <div class="pp-navhint">Swipe or tap to continue</div>
+        </section>
+
+        <!-- CTA slide -->
+        <section>
+            <div class="kicker">Next Step</div>
+            <h2>See it in action</h2>
+            <p class="subdued">Get the details sent to you, or explore it live.</p>
+            <div class="pp-cta-row">
+                <button class="pp-cta" onclick="openLeadCapture()">Get More Info</button>
+                <button class="pp-cta secondary" onclick="openDemoLink('https://aaaaselfstorage.com')">Try the Live Demo</button>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script src="../vendor/reveal/js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        touch: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: false
+    });
+
+    // Opens the kiosk lead-capture form pre-selected to this product, then
+    // closes this presentation so the form is front and center.
+    function openLeadCapture() {
+        var p = window.parent;
+        if (p && p.leadCapture) {
+            var item = null;
+            if (p.menuSystem && p.menuSystem.demoData) {
+                p.menuSystem.demoData.categories.forEach(function (c) {
+                    c.items.forEach(function (i) {
+                        if (i.id === 'noaweb') item = i;
+                    });
+                });
+            }
+            if (p.demoLauncher) p.demoLauncher.closeSlides();
+            p.leadCapture.open(item);
+        }
+    }
+
+    function openDemoLink(url) {
+        if (window.parent) window.parent.open(url, '_blank');
+    }
+</script>
+</body>
+</html>

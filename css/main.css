@@ -815,3 +815,44 @@ html, body {
     padding: 0 0.8vmin;
     box-shadow: var(--shadow-md);
 }
+
+/* Fullscreen slides viewer — reveal.js decks render in an iframe that fills
+   the viewport; the close button floats above it for touch access. */
+.slides-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1100;
+}
+
+.slides-modal.show {
+    display: block;
+}
+
+.slides-modal .modal-overlay {
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.slides-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #0a2540;
+}
+
+.slides-modal .modal-close {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--mql-white);
+    z-index: 20;
+}
+
+.slides-modal .modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--mql-white);
+}

@@ -82,7 +82,7 @@
               "label": "View Slides",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/budgets-slides.pdf"
+              "src": "slides/budgets.html"
             }
           ]
         },
@@ -114,7 +114,7 @@
               "label": "View Slides",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/contracts-slides.pdf"
+              "src": "slides/contracts.html"
             }
           ]
         }
@@ -170,7 +170,7 @@
               "label": "View Presentation",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/myqiosk-live-slides.pdf"
+              "src": "slides/myqiosk-live.html"
             },
             {
               "type": "video",
@@ -226,7 +226,7 @@
               "label": "View Slides",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/revenue-pro-slides.pdf"
+              "src": "slides/revenue-pro.html"
             },
             {
               "type": "video",
@@ -258,7 +258,7 @@
               "label": "View Slides",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/noaweb-slides.pdf"
+              "src": "slides/noaweb.html"
             },
             {
               "type": "link",
@@ -290,7 +290,7 @@
               "label": "View Presentation",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/full-service-slides.pdf"
+              "src": "slides/full-service.html"
             },
             {
               "type": "video",
@@ -314,7 +314,7 @@
               "label": "View Presentation",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/remote-mgmt-slides.pdf"
+              "src": "slides/remote-mgmt.html"
             },
             {
               "type": "video",
@@ -338,7 +338,7 @@
               "label": "View Presentation",
               "icon": "file-powerpoint",
               "requiresInternet": false,
-              "src": "assets/demos/noa-plus-slides.pdf"
+              "src": "slides/noa-plus.html"
             },
             {
               "type": "video",

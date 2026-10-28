@@ -28,6 +28,10 @@
     <!-- Attraction Screen Layer -->
     <div id="attractLayer" class="attract-layer">
         <div class="attract-background">
+            <video class="attract-video" autoplay muted loop playsinline
+                   poster="assets/images/attract-poster.jpg">
+                <source src="assets/video/attract-loop.mp4" type="video/mp4">
+            </video>
             <div class="attract-gradient"></div>
             <div class="attract-particles"></div>
         </div>
@@ -132,6 +136,15 @@
                     <p class="qr-url" id="qrUrl"></p>
                 </div>
             </div>
+        </div>
+
+        <!-- Fullscreen Slides Viewer -->
+        <div id="slidesModal" class="slides-modal">
+            <div class="modal-overlay"></div>
+            <button class="modal-close" id="slidesModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <iframe id="slidesFrame" class="slides-frame" title="Presentation" allowfullscreen></iframe>
         </div>
 
         <!-- Lead Capture FAB -->

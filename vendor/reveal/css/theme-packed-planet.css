@@ -1,0 +1,96 @@
+/**
+ * Packed Planet reveal.js theme — kiosk-friendly, no external font deps.
+ * Palette mirrors css/main.css --mql-* tokens.
+ */
+
+.reveal-viewport {
+    background: linear-gradient(135deg, #0a2540 0%, #14467c 100%);
+}
+
+.reveal {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 42px;
+    color: #ffffff;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    font-family: inherit;
+    color: #ffffff;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 0.5em 0;
+    text-shadow: none;
+}
+
+.reveal h1 { font-size: 2.2em; }
+.reveal h2 { font-size: 1.6em; }
+.reveal h3 { font-size: 1.3em; }
+
+.reveal p { margin: 0.4em 0; line-height: 1.4; }
+.reveal small { color: rgba(255,255,255,0.7); }
+
+.reveal ul, .reveal ol {
+    display: block;
+    margin: 0.5em 0 0.5em 1.2em;
+    line-height: 1.5;
+    text-align: left;
+}
+.reveal li { margin: 0.35em 0; }
+.reveal li::marker { color: #fd7e14; }
+
+.reveal a { color: #7db4f0; }
+.reveal a:hover { color: #a9cdfa; }
+
+.reveal .accent { color: #fd7e14; }
+.reveal .subdued { color: rgba(255,255,255,0.75); }
+.reveal .kicker {
+    color: #fd7e14;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.55em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.reveal img { border: none; box-shadow: none; background: transparent; }
+.reveal .slide-logo { max-height: 1.4em; margin-bottom: 0.6em; }
+
+/* Big tap targets for kiosk CTA slides */
+.reveal .pp-cta-row {
+    display: flex;
+    gap: 0.6em;
+    justify-content: center;
+    margin-top: 1em;
+    flex-wrap: wrap;
+}
+.reveal .pp-cta {
+    display: inline-block;
+    padding: 0.55em 1.4em;
+    border-radius: 0.5em;
+    background: #dc3545;
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+.reveal .pp-cta.secondary { background: #2b7de9; }
+.reveal .pp-cta.ghost {
+    background: transparent;
+    border: 3px solid rgba(255,255,255,0.6);
+}
+
+/* Touch swipe zones rendered over each slide for kiosk navigation */
+.reveal .pp-navhint {
+    position: absolute;
+    bottom: 0.6em;
+    right: 0.8em;
+    font-size: 0.45em;
+    color: rgba(255,255,255,0.5);
+}
+
+.reveal .progress { color: #fd7e14; height: 0.35em; }
+.reveal .controls { color: #fd7e14; }

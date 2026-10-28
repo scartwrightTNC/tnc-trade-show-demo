@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v5';
+const CACHE_NAME = 'trade-show-demo-v6';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install
@@ -19,6 +19,17 @@ const urlsToCache = [
   '/js/app.js',
   '/data/demos.json',
   '/manifest.json',
+  '/vendor/reveal/css/reveal.css',
+  '/vendor/reveal/css/theme-packed-planet.css',
+  '/vendor/reveal/js/reveal.js',
+  '/slides/budgets.html',
+  '/slides/contracts.html',
+  '/slides/myqiosk-live.html',
+  '/slides/revenue-pro.html',
+  '/slides/noaweb.html',
+  '/slides/full-service.html',
+  '/slides/remote-mgmt.html',
+  '/slides/noa-plus.html',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
   'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js'
 ];
@@ -28,7 +39,8 @@ const optionalUrls = [
   '/assets/images/tnc-logo.svg',
   '/assets/images/favicon.svg',
   '/assets/images/icon-192.svg',
-  '/assets/images/icon-512.svg'
+  '/assets/images/icon-512.svg',
+  '/assets/images/attract-poster.jpg'
 ];
 
 // Install event - cache resources

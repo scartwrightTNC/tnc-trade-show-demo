@@ -18,10 +18,22 @@ class DemoLauncher {
         
         // Close modal on escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.modal.classList.contains('show')) {
+            if (e.key !== 'Escape') return;
+            if (slidesModal && slidesModal.classList.contains('show')) {
+                this.closeSlides();
+            } else if (this.modal.classList.contains('show')) {
                 this.closeModal();
             }
         });
+
+        // Fullscreen slides viewer
+        const slidesModal = document.getElementById('slidesModal');
+        if (slidesModal) {
+            document.getElementById('slidesModalClose')
+                .addEventListener('click', () => this.closeSlides());
+            slidesModal.querySelector('.modal-overlay')
+                .addEventListener('click', () => this.closeSlides());
+        }
     }
     
     showDemo(item, category) {
@@ -181,31 +193,27 @@ class DemoLauncher {
     }
     
     async launchSlides(method) {
-        // Check if slides file exists
+        // Decks are reveal.js HTML pages in slides/ — shown in a fullscreen
+        // iframe overlay so swipe/tap navigation gets the whole screen.
         const slidesExist = await this.checkFileExists(method.src);
-        
+
         if (!slidesExist) {
             this.showContentPlaceholder('Presentation', method);
             return;
         }
-        
-        // Show slides presentation
-        const slidesHtml = `
-            <div class="demo-header">
-                <div class="demo-title-section">
-                    <div class="demo-title">${method.platform} Presentation</div>
-                </div>
-            </div>
-            <div style="text-align: center; padding: 4vmin;">
-                <i class="fas fa-file-powerpoint" style="font-size: 10vmin; color: var(--mql-orange); margin-bottom: 2vmin;"></i>
-                <p style="font-size: 2vmin; color: var(--mql-gray-600);">
-                    Presentation slides would be displayed here.<br>
-                    Content: ${method.src || 'slides.pdf'}
-                </p>
-            </div>
-        `;
-        
-        this.modalBody.innerHTML = slidesHtml;
+
+        const slidesModal = document.getElementById('slidesModal');
+        const frame = document.getElementById('slidesFrame');
+        frame.src = method.src;
+        slidesModal.classList.add('show');
+        this.closeModal();
+    }
+
+    closeSlides() {
+        const slidesModal = document.getElementById('slidesModal');
+        const frame = document.getElementById('slidesFrame');
+        slidesModal.classList.remove('show');
+        frame.src = 'about:blank';
     }
     
     async checkFileExists(url) {

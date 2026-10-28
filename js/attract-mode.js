@@ -22,6 +22,26 @@ class AttractionScreen {
     }
     
     init() {
+        // Background video — only once it's actually playing do we swap the
+        // opaque gradient for a dimming layer (has-video). If the file is
+        // missing or autoplay is refused, the gradient look stays as fallback.
+        this.video = this.layer.querySelector('.attract-video');
+        if (this.video) {
+            this.video.addEventListener('playing', () => {
+                this.layer.classList.add('has-video');
+            });
+            this.video.addEventListener('error', () => {
+                this.layer.classList.remove('has-video');
+                this.video.style.display = 'none';
+            });
+            // muted+playsinline should autoplay; nudge it in case the engine
+            // stalled it, and retry on first touch as a last resort.
+            const nudgePlay = () => this.video.play().catch(() => {});
+            this.video.addEventListener('canplay', nudgePlay, { once: true });
+            document.addEventListener('pointerdown', nudgePlay, { once: true });
+            nudgePlay();
+        }
+
         // Start tagline rotation
         this.startTaglineRotation();
         

@@ -30,6 +30,15 @@
     overflow: hidden;
 }
 
+.attract-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .attract-gradient {
     position: absolute;
     top: 0;
@@ -43,6 +52,18 @@
         var(--mql-blue) 100%
     );
     animation: gradientShift 15s ease infinite;
+}
+
+/* When the background video is actually playing, the gradient becomes a
+   translucent dimming layer so the footage shows through while keeping the
+   text/logo readable. Without video the opaque gradient is the fallback. */
+.attract-layer.has-video .attract-gradient {
+    background: linear-gradient(
+        135deg,
+        rgba(10, 37, 64, 0.75) 0%,
+        rgba(20, 70, 124, 0.65) 50%,
+        rgba(43, 125, 233, 0.55) 100%
+    );
 }
 
 @keyframes gradientShift {
