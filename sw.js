@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v6';
+const CACHE_NAME = 'trade-show-demo-v7';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install
@@ -40,7 +40,10 @@ const optionalUrls = [
   '/assets/images/favicon.svg',
   '/assets/images/icon-192.svg',
   '/assets/images/icon-512.svg',
-  '/assets/images/attract-poster.jpg'
+  '/assets/images/attract-poster.jpg',
+  // 30MB attract loop — precached when present so the attract screen plays
+  // offline at the show; optional so a missing file can't break install.
+  '/assets/video/attract-loop.mp4'
 ];
 
 // Install event - cache resources
@@ -93,8 +96,13 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Cache hit - return response
+        // Cache hit - return response. Media elements issue Range requests,
+        // so slice a 206 out of the cached body or playback breaks offline.
         if (response) {
+          const rangeHeader = event.request.headers.get('range');
+          if (rangeHeader) {
+            return serveRange(response, rangeHeader);
+          }
           return response;
         }
         
@@ -126,6 +134,25 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
+// Builds a 206 Partial Content response from a fully-cached media response.
+// Video/audio elements request byte ranges (e.g. "bytes=0-"); replaying the
+// cached 200 verbatim makes seeking and even initial playback fail.
+async function serveRange(cachedResponse, rangeHeader) {
+  const buffer = await cachedResponse.arrayBuffer();
+  const match = /bytes=(\d+)-(\d*)/.exec(rangeHeader);
+  if (!match) {
+    return new Response(buffer, { status: 200 });
+  }
+  const start = parseInt(match[1], 10);
+  const end = match[2] ? parseInt(match[2], 10) : buffer.byteLength - 1;
+  const chunk = buffer.slice(start, end + 1);
+  const headers = new Headers(cachedResponse.headers);
+  headers.set('Content-Range', 'bytes ' + start + '-' + end + '/' + buffer.byteLength);
+  headers.set('Accept-Ranges', 'bytes');
+  headers.set('Content-Length', chunk.byteLength);
+  return new Response(chunk, { status: 206, statusText: 'Partial Content', headers });
+}
 
 // Background sync for analytics (future enhancement)
 self.addEventListener('sync', event => {
