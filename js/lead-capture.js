@@ -45,16 +45,24 @@ class LeadCapture {
             this.submit();
         });
 
-        // In-page keyboard types into whichever field was last focused.
-        this.activeInput = this.firstNameInput;
-        this.buildKeyboard();
+        // WebView2 kiosk-shell bridge (same pattern as the showroom kiosk):
+        // focusing a text field asks the shell to raise the Windows touch
+        // keyboard (TabTip); blurring hides it. No-ops in a normal browser.
+        const postOsk = (msg) => {
+            try { window.chrome.webview.postMessage(msg); } catch (e) {}
+        };
+        document.addEventListener('focusin', (e) => {
+            const t = e.target;
+            if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) {
+                postOsk('osk:show');
+            }
+        }, true);
+        document.addEventListener('focusout', () => postOsk('osk:hide'), true);
 
-        // Keep the focused field above the on-screen keyboard. Chrome honors
-        // interactive-widget=resizes-content, but iOS overlays the keyboard
-        // without resizing — scroll the input into view instead.
+        // Keep the focused field above the keyboard area — scroll it into
+        // view once the OS keyboard animates in.
         [this.firstNameInput, this.lastNameInput, this.contactInput].forEach(input => {
             input.addEventListener('focus', () => {
-                this.activeInput = input;
                 setTimeout(() => input.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
             });
         });
@@ -113,54 +121,6 @@ class LeadCapture {
         if (!selectedId && products.length > 0) {
             this.productSelect.value = products[0].id;
         }
-    }
-
-    buildKeyboard() {
-        const kb = document.getElementById('leadKeyboard');
-        if (!kb) return;
-        const rows = [
-            '1234567890'.split(''),
-            'qwertyuiop'.split(''),
-            'asdfghjkl'.split(''),
-            ['z', 'x', 'c', 'v', 'b', 'n', 'm', '⌫'],
-            ['@', '.', '-', '_', '+', ' ']
-        ];
-        rows.forEach(keys => {
-            const row = document.createElement('div');
-            row.className = 'lead-key-row';
-            keys.forEach(k => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'lead-key' + (k === '⌫' || k === ' ' ? ' wide' : '');
-                btn.textContent = k === ' ' ? 'space' : k;
-                // Keep the input's focus/caret while keys are tapped.
-                btn.addEventListener('mousedown', e => e.preventDefault());
-                btn.addEventListener('click', () => this.typeKey(k));
-                row.appendChild(btn);
-            });
-            kb.appendChild(row);
-        });
-    }
-
-    typeKey(k) {
-        const input = this.activeInput;
-        if (!input) return;
-        const start = input.selectionStart ?? input.value.length;
-        const end = input.selectionEnd ?? start;
-        if (k === '⌫') {
-            if (start !== end) {
-                input.value = input.value.slice(0, start) + input.value.slice(end);
-                input.setSelectionRange(start, start);
-            } else if (start > 0) {
-                input.value = input.value.slice(0, start - 1) + input.value.slice(end);
-                input.setSelectionRange(start - 1, start - 1);
-            }
-        } else {
-            input.value = input.value.slice(0, start) + k + input.value.slice(end);
-            input.setSelectionRange(start + 1, start + 1);
-        }
-        input.focus();
-        input.dispatchEvent(new Event('input', { bubbles: true }));
     }
 
     detectChannel(contact) {
