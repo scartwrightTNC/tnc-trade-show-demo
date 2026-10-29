@@ -14,6 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <!-- Styles -->
+    <link rel="stylesheet" href="vendor/kioskboard/kioskboard.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/attract.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -177,14 +178,14 @@
                         <label class="lead-label" for="leadFirstName">Your Name</label>
                         <div class="lead-name-row">
                             <input id="leadFirstName" class="lead-input" type="text"
-                                   autocomplete="given-name" placeholder="First name">
+                                   autocomplete="given-name" inputmode="none" placeholder="First name">
                             <input id="leadLastName" class="lead-input" type="text"
-                                   autocomplete="family-name" placeholder="Last name">
+                                   autocomplete="family-name" inputmode="none" placeholder="Last name">
                         </div>
 
                         <label class="lead-label" for="leadContact">Email or Mobile Number</label>
                         <input id="leadContact" class="lead-input" type="text"
-                               autocomplete="email" inputmode="email"
+                               autocomplete="email" inputmode="none"
                                placeholder="you@example.com or 757-555-1234">
 
                         <!-- Honeypot: hidden from humans, bots fill it -->
@@ -204,6 +205,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="vendor/kioskboard/kioskboard-aio.min.js"></script>
     <script src="js/analytics.js"></script>
     <script src="js/offline.js"></script>
     <script src="js/attract-mode.js"></script>

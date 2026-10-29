@@ -45,19 +45,18 @@ class LeadCapture {
             this.submit();
         });
 
-        // WebView2 kiosk-shell bridge (same pattern as the showroom kiosk):
-        // focusing a text field asks the shell to raise the Windows touch
-        // keyboard (TabTip); blurring hides it. No-ops in a normal browser.
-        const postOsk = (msg) => {
-            try { window.chrome.webview.postMessage(msg); } catch (e) {}
-        };
-        document.addEventListener('focusin', (e) => {
-            const t = e.target;
-            if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) {
-                postOsk('osk:show');
-            }
-        }, true);
-        document.addEventListener('focusout', () => postOsk('osk:hide'), true);
+        // KioskBoard in-page keyboard (vendored, works offline) — shows on
+        // input focus; inputmode="none" keeps the OS keyboard from competing.
+        if (window.KioskBoard) {
+            KioskBoard.init({
+                keysArrayOfObjects: null,
+                theme: 'dark',
+                autoScroll: true
+            });
+            ['leadFirstName', 'leadLastName', 'leadContact'].forEach(id =>
+                KioskBoard.run('#' + id)
+            );
+        }
 
         // Keep the focused field above the keyboard area — scroll it into
         // view once the OS keyboard animates in.
