@@ -95,14 +95,17 @@
 .reveal .progress { color: #fd7e14; height: 0.35em; }
 .reveal .controls { color: #fd7e14; }
 
-/* Media + layout helpers for rebuilt decks */
+/* Media + layout helpers for rebuilt decks. Image caps use px in reveal's
+   960x720 layout units — a heading block is ~150px, so 430px keeps a
+   heading + image inside the slide; rows stay a bit smaller. */
 .reveal .pp-img {
-    max-height: 58vh;
+    max-height: 430px;
     max-width: 90%;
     border-radius: 0.4em;
     box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
 .reveal .pp-img.plain { box-shadow: none; }
+.reveal .pp-img.big { max-height: 560px; } /* near-full-bleed, heading-free */
 .reveal .pp-img-row {
     display: flex;
     gap: 0.6em;
@@ -110,11 +113,13 @@
     align-items: center;
 }
 .reveal .pp-img-row img {
-    max-height: 50vh;
+    max-height: 380px;
     max-width: 46%;
     border-radius: 0.4em;
     box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
+/* Rows under a bullet list need a smaller cap to stay in bounds. */
+.reveal .pp-img-row.compact img { max-height: 280px; }
 .reveal .pp-cols {
     display: flex;
     gap: 1em;
