@@ -340,3 +340,14 @@
     height: 8vmin;
     width: auto;
 }
+
+/* Text-only badge (Other Services) to match the logo pills. */
+.feature-badge .badge-text {
+    display: flex;
+    align-items: center;
+    height: 8vmin;
+    font-size: 2.4vmin;
+    font-weight: 700;
+    color: var(--mql-gray-800);
+    padding: 0 1vmin;
+}
