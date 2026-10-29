@@ -334,7 +334,7 @@
 
 /* Logo badges on the attract screen (replaces icon + name). */
 .feature-badge .badge-logo {
-    max-height: 8.4vmin;
-    max-width: 22vmin;
+    max-height: 10vmin;
+    max-width: 27vmin;
     object-fit: contain;
 }
