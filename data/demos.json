@@ -26,7 +26,7 @@
               "label": "Store Audit via NOA",
               "icon": "external-link-alt",
               "requiresInternet": true,
-              "url": "https://live.myqiosk.com"
+              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Eval_Dashboard"
             },
             {
               "type": "video",
@@ -50,7 +50,7 @@
               "label": "Open in NOA",
               "icon": "external-link-alt",
               "requiresInternet": true,
-              "url": "https://live.myqiosk.com"
+              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Work_Order_Hub"
             },
             {
               "type": "video",
@@ -74,7 +74,7 @@
               "label": "Open in NOA",
               "icon": "external-link-alt",
               "requiresInternet": true,
-              "url": "https://live.myqiosk.com"
+              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Budget_Homepage"
             }
           ]
         },
@@ -98,7 +98,7 @@
               "label": "Open in NOA",
               "icon": "external-link-alt",
               "requiresInternet": true,
-              "url": "https://live.myqiosk.com"
+              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Contracts_Enterprise_Dashboard"
             }
           ]
         }
@@ -242,7 +242,7 @@
               "label": "Open in NOA",
               "icon": "external-link-alt",
               "requiresInternet": true,
-              "url": "https://live.myqiosk.com"
+              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Dashboard_Hub"
             }
           ]
         },
