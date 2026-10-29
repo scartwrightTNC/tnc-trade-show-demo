@@ -206,7 +206,9 @@
     align-items: center;
     justify-content: center;
     gap: 1vmin;
-    padding: 2vmin;
+    padding: 1.5vmin 2.5vmin;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
     border-radius: 1.5vmin;
     transition: all var(--transition-base);
     cursor: pointer;
@@ -215,6 +217,7 @@
 }
 
 .feature-badge:hover {
+    background: rgba(255, 255, 255, 0.7);
     transform: translateY(-0.5vmin) scale(1.05);
 }
 
@@ -334,6 +337,6 @@
 
 /* Logo badges on the attract screen (replaces icon + name). */
 .feature-badge .badge-logo {
-    height: 10vmin;
+    height: 8vmin;
     width: auto;
 }
