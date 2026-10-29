@@ -182,6 +182,15 @@ class AttractionScreen {
         this.isActive = true;
         this.layer.classList.remove('hidden');
         
+        // Close any open modals so attract returns like a fresh load.
+        if (window.demoLauncher) {
+            window.demoLauncher.closeModal();
+            if (window.demoLauncher.closeSlides) window.demoLauncher.closeSlides();
+        }
+        if (window.leadCapture && window.leadCapture.close) {
+            window.leadCapture.close();
+        }
+        
         // Track return to attraction screen
         if (window.analytics) {
             window.analytics.trackAttraction('enter', {
