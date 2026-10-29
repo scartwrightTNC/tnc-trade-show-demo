@@ -922,3 +922,10 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
 
 /* Video modal ~30% wider than the standard modal. */
 .demo-modal.video-open .modal-content { max-width: 130vmin; }
+
+/* Video fills the modal edge-to-edge — no white frame. */
+.demo-modal.video-open .modal-content {
+    background: #000;
+    border-radius: 1.5vmin;
+}
+.demo-modal.video-open .modal-body { padding: 0; }
