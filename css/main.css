@@ -866,9 +866,28 @@ html, body {
 
 
 
-/* In-modal touch keyboard */
+/* On-screen keyboard — fixed bottom bar, only while the lead modal is
+   open. Keys sized ~40% over the library defaults for the big display. */
 .lead-kb {
-    margin-top: var(--space-md);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--mql-gray-200);
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200; /* above the lead modal (1100) */
+    padding: 1.4vmin 8vmin;
+    background: var(--mql-white);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.18);
 }
+body:has(.lead-modal.show) .lead-kb { display: block; }
+
+.lead-kb .hg-row { margin-bottom: 1vmin; }
+.lead-kb .hg-button {
+    height: 7vmin;
+    font-size: 2.8vmin;
+    font-weight: 600;
+    border-radius: 1vmin;
+}
+
+/* Keep the lead modal clear of the docked keyboard bar. */
+.lead-modal.show { padding-bottom: 13vmin; }
