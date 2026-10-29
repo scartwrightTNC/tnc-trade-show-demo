@@ -18,46 +18,60 @@
         </section>
 
         <section>
-            <div class="kicker">In Their Hand</div>
-            <h2>A QR Code Is a Kiosk in Their Pocket</h2>
-            <ul>
-                <li class="fragment">Rent from your phone</li>
-                <li class="fragment">Pay from your phone</li>
-                <li class="fragment">Manage your account</li>
-                <li class="fragment">Leave reviews or send messages</li>
-            </ul>
-            <img class="pp-img fragment" style="max-height:38vh; margin-top:0.5em;" src="img/customerxp/s02-1.jpg" alt="Customer app">
-        </section>
-
-        <section>
-            <div class="kicker">Quick Access</div>
-            <h2>Everything One Tap Away</h2>
-            <ul>
-                <li class="fragment">Call, chat &amp; video across the top</li>
-                <li class="fragment">Rent a unit, leave a review, pay a bill</li>
-                <li class="fragment">Emergency line to on-call support</li>
-                <li class="fragment">"Happy" → Google review · "Not happy" → trackable QA case</li>
-            </ul>
-            <div class="pp-img-row" style="margin-top:0.5em;">
-                <img class="fragment" src="img/customerxp/s03-0.png" alt="Quick access buttons" style="max-height:36vh;">
-                <img class="fragment" src="img/customerxp/s03-1.png" alt="Common features" style="max-height:36vh;">
+            <div class="pp-split">
+                <div>
+                    <div class="kicker">In Their Hand</div>
+                    <h2>A QR Code Is a Kiosk in Their Pocket</h2>
+                    <ul>
+                        <li>Rent from your phone</li>
+                        <li>Pay from your phone</li>
+                        <li>Manage your account</li>
+                        <li>Leave reviews or send messages</li>
+                    </ul>
+                </div>
+                <div class="pp-split-media">
+                    <img src="img/customerxp/s02-1.jpg" alt="Customer app">
+                </div>
             </div>
         </section>
 
         <section>
-            <div class="kicker">Digital Pass</div>
-            <h2>Access Code in the Wallet</h2>
-            <p class="subdued" style="font-size:0.75em;">Gate code, unit, balance and referral QR — right on the tenant's phone.</p>
-            <div class="pp-img-row">
-                <img class="fragment" src="img/customerxp/s06-0.png" alt="Digital tenant pass" style="max-height:52vh;">
-                <img class="fragment" src="img/customerxp/s06-1.png" alt="Pass details" style="max-height:52vh;">
+            <div class="pp-split">
+                <div>
+                    <div class="kicker">Quick Access</div>
+                    <h2>Everything One Tap Away</h2>
+                    <ul>
+                        <li>Call, chat &amp; video across the top</li>
+                        <li>Rent a unit, leave a review, pay a bill</li>
+                        <li>Emergency line to on-call support</li>
+                        <li>"Happy" → Google review · "Not happy" → trackable QA case</li>
+                    </ul>
+                </div>
+                <div class="pp-split-media">
+                    <img src="img/customerxp/s03-0.png" alt="Quick access buttons">
+                    <img src="img/customerxp/s03-1.png" alt="Common features">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="pp-split">
+                <div>
+                    <div class="kicker">Digital Pass</div>
+                    <h2>Access Code in the Wallet</h2>
+                    <p class="subdued" style="font-size:0.75em;">Gate code, unit, balance and referral QR — right on the tenant's phone.</p>
+                </div>
+                <div class="pp-split-media">
+                    <img src="img/customerxp/s06-0.png" alt="Digital tenant pass">
+                    <img src="img/customerxp/s06-1.png" alt="Pass details">
+                </div>
             </div>
         </section>
 
         <section>
             <div class="kicker">Site View</div>
             <h2>Interactive Facility Map</h2>
-            <img class="pp-img fragment" src="img/customerxp/s07-0.png" alt="Interactive unit map">
+            <img class="pp-img" src="img/customerxp/s07-0.png" alt="Interactive unit map">
         </section>
 
         <section>
@@ -74,14 +88,26 @@
 <script src="../vendor/reveal/js/reveal.js"></script>
 <script>
     Reveal.initialize({
-        touch: true, controls: true, progress: true, center: true, hash: false
+        touch: true, controls: true, progress: true, center: true, hash: false,
+        fragments: false
     });
 
+    // The kiosk passes the launching product on the URL (?item=<id>) so the
+    // shared deck can preselect the right product in the lead form.
     function openLeadCapture() {
         var p = window.parent;
         if (p && p.leadCapture) {
+            var itemId = new URLSearchParams(window.location.search).get('item');
+            var item = null;
+            if (itemId && p.menuSystem && p.menuSystem.demoData) {
+                p.menuSystem.demoData.categories.forEach(function (c) {
+                    c.items.forEach(function (i) {
+                        if (i.id === itemId) item = i;
+                    });
+                });
+            }
             if (p.demoLauncher) p.demoLauncher.closeSlides();
-            p.leadCapture.open();
+            p.leadCapture.open(item);
         }
     }
 </script>

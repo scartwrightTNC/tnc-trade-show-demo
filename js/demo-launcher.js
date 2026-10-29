@@ -139,7 +139,7 @@ class DemoLauncher {
                 await this.launchVideo(method);
                 break;
             case 'slides':
-                await this.launchSlides(method);
+                await this.launchSlides(method, item);
                 break;
             case 'iframe':
                 this.launchIframe(method);
@@ -192,9 +192,11 @@ class DemoLauncher {
         this.modalBody.innerHTML = videoHtml;
     }
     
-    async launchSlides(method) {
+    async launchSlides(method, item) {
         // Decks are reveal.js HTML pages in slides/ — shown in a fullscreen
-        // iframe overlay so swipe/tap navigation gets the whole screen.
+        // iframe overlay so swipe/tap navigation gets the whole screen. The
+        // launching product goes on the URL so the deck's CTA can preselect
+        // it in the lead form (a deck can serve multiple products).
         const slidesExist = await this.checkFileExists(method.src);
 
         if (!slidesExist) {
@@ -204,7 +206,7 @@ class DemoLauncher {
 
         const slidesModal = document.getElementById('slidesModal');
         const frame = document.getElementById('slidesFrame');
-        frame.src = method.src;
+        frame.src = method.src + '?item=' + encodeURIComponent(item.id);
         slidesModal.classList.add('show');
         this.closeModal();
     }
