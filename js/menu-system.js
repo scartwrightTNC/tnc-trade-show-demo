@@ -90,6 +90,8 @@ class MenuSystem {
         card.addEventListener('click', () => {
             if (category.url && window.demoLauncher) {
                 window.demoLauncher.openSite(category.url);
+            } else if (category.items.length === 1 && window.demoLauncher) {
+                window.demoLauncher.showDemo(category.items[0], category);
             } else {
                 this.renderCategory(category);
             }
