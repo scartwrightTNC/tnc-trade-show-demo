@@ -158,9 +158,14 @@ html, body {
     overflow-y: auto;
     padding: var(--space-lg);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30vmin, 1fr));
+    /* px min keeps column counts predictable across scaling/DPR quirks;
+       vmin minima produced a single giant column at 4K/150%. */
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
     gap: var(--space-lg);
     align-content: start;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* Category Cards */
