@@ -277,7 +277,8 @@
           ],
           "logo": "assets/images/logos/noaweb.png"
         }
-      ]
+      ],
+      "logo": "assets/images/packed-planet-logo.png"
     },
     {
       "id": "management",
