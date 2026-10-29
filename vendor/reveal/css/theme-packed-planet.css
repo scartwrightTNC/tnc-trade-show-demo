@@ -157,24 +157,31 @@
 .reveal .pp-stat .cap { font-size: 0.45em; color: rgba(255,255,255,0.75); }
 
 /* Split layout: text left, media right — keeps tall phone/screenshot
-   images from stacking below the fold on the kiosk screen. */
+   images from stacking below the fold on the kiosk screen. Proportions
+   and sizes are capped in reveal's 960x720 layout units so nothing
+   overflows the slide bounds. */
 .reveal .pp-split {
     display: flex;
-    gap: 1em;
+    gap: 1.2em;
     align-items: center;
     text-align: left;
 }
-.reveal .pp-split > * { flex: 1; min-width: 0; }
+.reveal .pp-split > * { min-width: 0; }
+.reveal .pp-split > .pp-split-text { flex: 1 1 55%; }
+.reveal .pp-split h2 { font-size: 1.15em; margin-bottom: 0.35em; }
+.reveal .pp-split ul, .reveal .pp-split p { font-size: 0.78em; line-height: 1.4; }
 .reveal .pp-split .pp-split-media {
-    flex: 0 0 auto;
+    flex: 1 1 42%;
     display: flex;
-    gap: 0.6em;
+    gap: 0.5em;
     align-items: center;
     justify-content: center;
 }
 .reveal .pp-split .pp-split-media img {
-    max-height: 62vh;
+    max-height: 480px;
     max-width: 100%;
+    flex: 0 1 auto;
     border-radius: 0.4em;
     box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
+.reveal .pp-split .pp-split-media.two img { max-width: 48%; }
