@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v8';
+const CACHE_NAME = 'trade-show-demo-v9';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install
@@ -22,14 +22,11 @@ const urlsToCache = [
   '/vendor/reveal/css/reveal.css',
   '/vendor/reveal/css/theme-packed-planet.css',
   '/vendor/reveal/js/reveal.js',
-  '/slides/budgets.html',
-  '/slides/contracts.html',
   '/slides/customer-xp.html',
   '/slides/revenue-pro.html',
   '/slides/noaweb.html',
   '/slides/full-service.html',
   '/slides/remote-mgmt.html',
-  '/slides/noa-plus.html',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
   'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js'
 ];

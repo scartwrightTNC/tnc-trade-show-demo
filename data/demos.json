@@ -75,14 +75,6 @@
               "icon": "external-link-alt",
               "requiresInternet": true,
               "url": "https://live.myqiosk.com"
-            },
-            {
-              "type": "slides",
-              "platform": "Presentation",
-              "label": "View Slides",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/budgets.html"
             }
           ]
         },
@@ -107,14 +99,6 @@
               "icon": "external-link-alt",
               "requiresInternet": true,
               "url": "https://live.myqiosk.com"
-            },
-            {
-              "type": "slides",
-              "platform": "Presentation",
-              "label": "View Slides",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/contracts.html"
             }
           ]
         }
@@ -348,14 +332,6 @@
           "description": "Self-service management tools for owners",
           "icon": "user-cog",
           "methods": [
-            {
-              "type": "slides",
-              "platform": "PowerPoint",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/noa-plus.html"
-            },
             {
               "type": "video",
               "platform": "Video",
