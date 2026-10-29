@@ -49,6 +49,7 @@ class LeadCapture {
         // input focus; inputmode="none" keeps the OS keyboard from competing.
         if (window.KioskBoard) {
             KioskBoard.init({
+                keysJsonUrl: '/vendor/kioskboard/kioskboard-keys-english.json',
                 theme: 'dark',
                 autoScroll: true
             });

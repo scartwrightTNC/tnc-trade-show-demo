@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v13';
+const CACHE_NAME = 'trade-show-demo-v14';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install
@@ -21,6 +21,7 @@ const urlsToCache = [
   '/manifest.json',
   '/vendor/kioskboard/kioskboard.min.css',
   '/vendor/kioskboard/kioskboard-aio.min.js',
+  '/vendor/kioskboard/kioskboard-keys-english.json',
   '/vendor/reveal/css/reveal.css',
   '/vendor/reveal/css/theme-packed-planet.css',
   '/vendor/reveal/js/reveal.js',
@@ -41,7 +42,7 @@ const optionalUrls = [
   // 30MB attract loop â€” precached when present so the attract screen plays
   // offline at the show; optional so a missing file can't break install.
   '/assets/video/attract-loop.mp4',
-  // CDNs stay optional — Electron Capture's sandbox can block third-party
+  // CDNs stay optional ï¿½ Electron Capture's sandbox can block third-party
   // requests, which would abort install if they were required.
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
   'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js',
