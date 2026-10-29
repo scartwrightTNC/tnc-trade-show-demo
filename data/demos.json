@@ -36,7 +36,8 @@
               "requiresInternet": false,
               "src": "assets/demos/field-tools-demo.mp4"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/field-tools.png"
         },
         {
           "id": "maintenance",
@@ -102,7 +103,8 @@
             }
           ]
         }
-      ]
+      ],
+      "logo": "assets/images/logos/enterprise.png"
     },
     {
       "id": "customer-xp",
@@ -148,7 +150,8 @@
               "requiresInternet": false,
               "src": "assets/demos/myqiosk-demo.mp4"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/myqiosk.png"
         },
         {
           "id": "myqiosk-live",
@@ -172,7 +175,8 @@
               "requiresInternet": false,
               "src": "assets/demos/myqiosk-live-demo.mp4"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/myqiosk-live.png"
         },
         {
           "id": "access-plus",
@@ -204,9 +208,11 @@
               "requiresInternet": false,
               "src": "assets/demos/access-plus-demo.mp4"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/access-plus.png"
         }
-      ]
+      ],
+      "logo": "assets/images/logos/customer-xp.png"
     },
     {
       "id": "standalone",
@@ -268,7 +274,8 @@
               "requiresInternet": true,
               "url": "https://aaaaselfstorage.com"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/noaweb.png"
         }
       ]
     },
@@ -300,7 +307,8 @@
               "requiresInternet": false,
               "src": "assets/demos/full-service-demo.mp4"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/full-service.png"
         },
         {
           "id": "remote-management",
@@ -324,7 +332,8 @@
               "requiresInternet": false,
               "src": "assets/demos/remote-mgmt-demo.mp4"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/remote-mgmt.png"
         },
         {
           "id": "noa-plus",
@@ -340,7 +349,8 @@
               "requiresInternet": false,
               "src": "assets/demos/noa-plus-demo.mp4"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/noa-plus.png"
         }
       ]
     }

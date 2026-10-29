@@ -894,3 +894,10 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
    top of the viewport and cap the scrollable body so the submit button
    stays visible above the keyboard. */
 .lead-modal.show { padding-bottom: 30vmin; }
+
+/* Product/category logos on cards */
+.category-icon img, .item-icon img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}

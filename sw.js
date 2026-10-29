@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v16';
+const CACHE_NAME = 'trade-show-demo-v17';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install
@@ -18,6 +18,16 @@ const urlsToCache = [
   '/js/lead-capture.js',
   '/js/app.js',
   '/data/demos.json',
+  '/assets/images/logos/access-plus.png',
+  '/assets/images/logos/customer-xp.png',
+  '/assets/images/logos/enterprise.png',
+  '/assets/images/logos/field-tools.png',
+  '/assets/images/logos/full-service.png',
+  '/assets/images/logos/myqiosk-live.png',
+  '/assets/images/logos/myqiosk.png',
+  '/assets/images/logos/noa-plus.png',
+  '/assets/images/logos/noaweb.png',
+  '/assets/images/logos/remote-mgmt.png',
   '/manifest.json',
   '/vendor/simple-keyboard/simple-keyboard.css',
   '/vendor/simple-keyboard/simple-keyboard.min.js',

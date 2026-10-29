@@ -79,7 +79,9 @@ class MenuSystem {
         
         card.innerHTML = `
             <div class="category-icon">
-                <i class="fas fa-${category.icon}"></i>
+                ${category.logo
+                    ? `<img src="${category.logo}" alt="${category.name}">`
+                    : `<i class="fas fa-${category.icon}"></i>`}
             </div>
             <div class="category-name">${category.name}</div>
             <div class="category-count">${category.items.length} items</div>
@@ -128,7 +130,9 @@ class MenuSystem {
         card.innerHTML = `
             <div class="item-header">
                 <div class="item-icon">
-                    <i class="fas fa-${item.icon || 'cube'}"></i>
+                    ${item.logo
+                        ? `<img src="${item.logo}" alt="${item.title}">`
+                        : `<i class="fas fa-${item.icon || 'cube'}"></i>`}
                 </div>
                 <div class="item-title">${item.title}</div>
             </div>
