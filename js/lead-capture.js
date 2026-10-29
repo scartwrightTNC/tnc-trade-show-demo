@@ -45,25 +45,30 @@ class LeadCapture {
             this.submit();
         });
 
-        // KioskBoard in-page keyboard (vendored, works offline) — shows on
-        // input focus; inputmode="none" keeps the OS keyboard from competing.
-        if (window.KioskBoard) {
-            KioskBoard.init({
-                keysJsonUrl: '/vendor/kioskboard/kioskboard-keys-english.json',
-                keysNumpadArrayOfNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-                keysSpecialCharsArrayOfStrings: ['@', '.', '-', '_', '+'],
-                theme: 'dark',
-                autoScroll: true
+        // simple-keyboard (vendored, works offline) — always visible inside
+        // the modal, types into the last-focused field with caret support.
+        this.activeInput = this.firstNameInput;
+        if (window.Keyboard) {
+            this.keyboard = new Keyboard('.lead-kb', {
+                layout: {
+                    default: [
+                        '1 2 3 4 5 6 7 8 9 0',
+                        'q w e r t y u i o p',
+                        'a s d f g h j k l',
+                        'z x c v b n m {bksp}',
+                        '@ . - _ + {space}'
+                    ]
+                },
+                display: { '{bksp}': '⌫', '{space}': 'space' },
+                onKeyPress: (key) => this.typeKey(key === '{bksp}' ? '⌫' : key === '{space}' ? ' ' : key)
             });
-            ['leadFirstName', 'leadLastName', 'leadContact'].forEach(id =>
-                KioskBoard.run('#' + id)
-            );
         }
 
-        // Keep the focused field above the keyboard area — scroll it into
-        // view once the OS keyboard animates in.
+        // Track the active field; scroll it into view once the keyboard
+        // area settles.
         [this.firstNameInput, this.lastNameInput, this.contactInput].forEach(input => {
             input.addEventListener('focus', () => {
+                this.activeInput = input;
                 setTimeout(() => input.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
             });
         });
@@ -122,6 +127,27 @@ class LeadCapture {
         if (!selectedId && products.length > 0) {
             this.productSelect.value = products[0].id;
         }
+    }
+
+    typeKey(k) {
+        const input = this.activeInput;
+        if (!input) return;
+        const start = input.selectionStart ?? input.value.length;
+        const end = input.selectionEnd ?? start;
+        if (k === '⌫') {
+            if (start !== end) {
+                input.value = input.value.slice(0, start) + input.value.slice(end);
+                input.setSelectionRange(start, start);
+            } else if (start > 0) {
+                input.value = input.value.slice(0, start - 1) + input.value.slice(end);
+                input.setSelectionRange(start - 1, start - 1);
+            }
+        } else {
+            input.value = input.value.slice(0, start) + k + input.value.slice(end);
+            input.setSelectionRange(start + 1, start + 1);
+        }
+        input.focus();
+        input.dispatchEvent(new Event('input', { bubbles: true }));
     }
 
     detectChannel(contact) {

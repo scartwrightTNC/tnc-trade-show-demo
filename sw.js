@@ -1,6 +1,6 @@
 // Service Worker for Trade Show Demo
 
-const CACHE_NAME = 'trade-show-demo-v15';
+const CACHE_NAME = 'trade-show-demo-v16';
 const OFFLINE_URL = '/index.html';
 
 // Resources to cache on install
@@ -19,9 +19,8 @@ const urlsToCache = [
   '/js/app.js',
   '/data/demos.json',
   '/manifest.json',
-  '/vendor/kioskboard/kioskboard.min.css',
-  '/vendor/kioskboard/kioskboard-aio.min.js',
-  '/vendor/kioskboard/kioskboard-keys-english.json',
+  '/vendor/simple-keyboard/simple-keyboard.css',
+  '/vendor/simple-keyboard/simple-keyboard.min.js',
   '/vendor/reveal/css/reveal.css',
   '/vendor/reveal/css/theme-packed-planet.css',
   '/vendor/reveal/js/reveal.js',
