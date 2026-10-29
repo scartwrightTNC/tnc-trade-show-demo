@@ -343,6 +343,7 @@ html, body {
     width: 90%;
     max-width: 80vmin;
     max-height: 90vh;
+    max-height: 90dvh; /* tracks the keyboard-shrunken viewport */
     overflow: hidden;
     animation: slideUp var(--transition-base);
     box-shadow: var(--shadow-xl);
@@ -376,6 +377,7 @@ html, body {
     padding: var(--space-2xl);
     overflow-y: auto;
     max-height: 90vh;
+    max-height: 90dvh;
 }
 
 .demo-header {

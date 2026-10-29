@@ -45,6 +45,23 @@ class LeadCapture {
             this.submit();
         });
 
+        // Keep the focused field above the on-screen keyboard. Chrome honors
+        // interactive-widget=resizes-content, but iOS overlays the keyboard
+        // without resizing — scroll the input into view instead.
+        [this.firstNameInput, this.lastNameInput, this.contactInput].forEach(input => {
+            input.addEventListener('focus', () => {
+                setTimeout(() => input.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+            });
+        });
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', () => {
+                const active = document.activeElement;
+                if (active && this.form.contains(active)) {
+                    active.scrollIntoView({ block: 'center' });
+                }
+            });
+        }
+
         // Flush queued leads when connectivity returns, once on load, and on a
         // timer — navigator.onLine and the 'online' event are unreliable on
         // kiosk networks, so the interval is the real safety net.
