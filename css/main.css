@@ -876,16 +876,16 @@ html, body {
     width: 60%;
     bottom: 0;
     z-index: 1200; /* above the lead modal (1100) */
-    padding: 1.4vmin 2vmin;
+    padding: 1vmin 2vmin;
     background: var(--mql-white);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.18);
 }
 body:has(.lead-modal.show) .lead-kb { display: block; }
 
-.lead-kb .hg-row { margin-bottom: 1vmin; }
+.lead-kb .hg-row { margin-bottom: 0.6vmin; }
 .lead-kb .hg-button {
-    height: 7vmin;
-    font-size: 2.8vmin;
+    height: 4vmin;
+    font-size: 1.9vmin;
     font-weight: 600;
     border-radius: 1vmin;
 }
@@ -893,5 +893,4 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
 /* Keep the lead modal clear of the docked keyboard bar — pin it to the
    top of the viewport and cap the scrollable body so the submit button
    stays visible above the keyboard. */
-.lead-modal.show { align-items: flex-start; padding-top: 3vmin; }
-.lead-modal .modal-body { max-height: 52vmin; }
+.lead-modal.show { padding-bottom: 30vmin; }
