@@ -48,8 +48,9 @@ class LeadCapture {
         // simple-keyboard (vendored, works offline) — always visible inside
         // the modal, types into the last-focused field with caret support.
         this.activeInput = this.firstNameInput;
-        if (window.Keyboard) {
-            this.keyboard = new Keyboard('.lead-kb', {
+        const KB = window.SimpleKeyboard && (window.SimpleKeyboard.default || window.SimpleKeyboard);
+        if (KB) {
+            this.keyboard = new KB('.lead-kb', {
                 layout: {
                     default: [
                         '1 2 3 4 5 6 7 8 9 0',
