@@ -129,12 +129,10 @@ class MenuSystem {
         
         card.innerHTML = `
             <div class="item-header">
-                <div class="item-icon">
-                    ${item.logo
-                        ? `<img src="${item.logo}" alt="${item.title}">`
-                        : `<i class="fas fa-${item.icon || 'cube'}"></i>`}
-                </div>
-                <div class="item-title">${item.title}</div>
+                ${item.logo
+                    ? `<img class="item-logo" src="${item.logo}" alt="${item.title}">`
+                    : `<div class="item-icon"><i class="fas fa-${item.icon || 'cube'}"></i></div>
+                       <div class="item-title">${item.title}</div>`}
             </div>
             <div class="item-description">${item.description || ''}</div>
             <div class="item-methods">

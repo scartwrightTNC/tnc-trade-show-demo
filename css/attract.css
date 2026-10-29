@@ -336,3 +336,10 @@
         transform: translate(50px, 50px);
     }
 }
+
+/* Logo badges on the attract screen (replaces icon + name). */
+.feature-badge .badge-logo {
+    max-height: 7vmin;
+    max-width: 18vmin;
+    object-fit: contain;
+}
