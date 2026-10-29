@@ -910,3 +910,12 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
     max-height: 14vmin;
     object-fit: contain;
 }
+
+/* Category logo replaces icon + name on category cards. */
+.category-logo {
+    display: block;
+    margin: 0 auto var(--space-md);
+    max-width: 80%;
+    max-height: 16vmin;
+    object-fit: contain;
+}

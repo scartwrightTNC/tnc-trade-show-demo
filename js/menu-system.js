@@ -78,12 +78,10 @@ class MenuSystem {
         card.style.setProperty('--category-color', category.color);
         
         card.innerHTML = `
-            <div class="category-icon">
-                ${category.logo
-                    ? `<img src="${category.logo}" alt="${category.name}">`
-                    : `<i class="fas fa-${category.icon}"></i>`}
-            </div>
-            <div class="category-name">${category.name}</div>
+            ${category.logo
+                ? `<img class="category-logo" src="${category.logo}" alt="${category.name}">`
+                : `<div class="category-icon"><i class="fas fa-${category.icon}"></i></div>
+                   <div class="category-name">${category.name}</div>`}
             <div class="category-count">${category.items.length} items</div>
         `;
         
