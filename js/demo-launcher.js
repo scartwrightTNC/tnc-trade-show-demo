@@ -31,6 +31,8 @@ class DemoLauncher {
         if (slidesModal) {
             document.getElementById('slidesModalClose')
                 .addEventListener('click', () => this.closeSlides());
+            document.getElementById('siteBack')
+                .addEventListener('click', () => this.closeSlides());
             slidesModal.querySelector('.modal-overlay')
                 .addEventListener('click', () => this.closeSlides());
         }
@@ -202,7 +204,7 @@ class DemoLauncher {
         const slidesModal = document.getElementById('slidesModal');
         const frame = document.getElementById('slidesFrame');
         frame.src = url;
-        slidesModal.classList.add('show');
+        slidesModal.classList.add('show', 'site-mode');
     }
 
     async launchSlides(method, item) {
@@ -227,7 +229,7 @@ class DemoLauncher {
     closeSlides() {
         const slidesModal = document.getElementById('slidesModal');
         const frame = document.getElementById('slidesFrame');
-        slidesModal.classList.remove('show');
+        slidesModal.classList.remove('show', 'site-mode');
         frame.src = 'about:blank';
     }
     
