@@ -177,14 +177,14 @@
                         <label class="lead-label" for="leadFirstName">Your Name</label>
                         <div class="lead-name-row">
                             <input id="leadFirstName" class="lead-input" type="text"
-                                   autocomplete="given-name" placeholder="First name">
+                                   autocomplete="given-name" inputmode="none" placeholder="First name">
                             <input id="leadLastName" class="lead-input" type="text"
-                                   autocomplete="family-name" placeholder="Last name">
+                                   autocomplete="family-name" inputmode="none" placeholder="Last name">
                         </div>
 
                         <label class="lead-label" for="leadContact">Email or Mobile Number</label>
                         <input id="leadContact" class="lead-input" type="text"
-                               autocomplete="email" inputmode="email"
+                               autocomplete="email" inputmode="none"
                                placeholder="you@example.com or 757-555-1234">
 
                         <!-- Honeypot: hidden from humans, bots fill it -->
@@ -197,6 +197,7 @@
                             <i class="fas fa-paper-plane"></i> Send Info
                         </button>
                     </form>
+                    <div id="leadKeyboard" class="lead-keyboard" aria-label="On-screen keyboard"></div>
                 </div>
             </div>
         </div>
