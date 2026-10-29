@@ -342,10 +342,17 @@
 }
 
 /* Text-only badge (Other Services) to match the logo pills. */
+.feature-badge.text-badge {
+    background: transparent;
+    backdrop-filter: none;
+}
+
 .feature-badge .badge-text {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 8vmin;
+    min-width: 26vmin;
     padding: 0 3vmin;
     font-size: 3vmin;
     font-weight: 700;
