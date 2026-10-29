@@ -250,7 +250,8 @@
               "requiresInternet": true,
               "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Dashboard_Hub"
             }
-          ]
+          ],
+          "logo": "assets/images/logos/revenue-pro.png"
         },
         {
           "id": "noaweb",
