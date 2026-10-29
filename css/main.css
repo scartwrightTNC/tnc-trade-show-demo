@@ -867,3 +867,16 @@ html, body {
 
 /* KioskBoard renders to document.body — keep it above the modals (z-1100). */
 .kioskboard-wrapper { z-index: 3000 !important; }
+
+/* Keep KioskBoard visible while the lead modal is open — prevents the
+   hide/show flash when tapping between inputs; :has() hides it again
+   once the modal closes. */
+.lead-modal.show ~ .kioskboard-wrapper,
+body:has(.lead-modal.show) .kioskboard-wrapper {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+}
+body:not(:has(.lead-modal.show)) .kioskboard-wrapper {
+    display: none !important;
+}

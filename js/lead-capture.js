@@ -50,6 +50,8 @@ class LeadCapture {
         if (window.KioskBoard) {
             KioskBoard.init({
                 keysJsonUrl: '/vendor/kioskboard/kioskboard-keys-english.json',
+                keysNumpadArrayOfNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+                keysSpecialCharsArrayOfStrings: ['@', '.', '-', '_', '+'],
                 theme: 'dark',
                 autoScroll: true
             });
