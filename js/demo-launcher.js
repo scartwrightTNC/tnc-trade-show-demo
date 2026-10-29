@@ -110,6 +110,14 @@ class DemoLauncher {
     
     closeModal() {
         this.modal.classList.remove('show');
+        this.modal.classList.remove('video-open');
+        // Stop any playing video so audio doesn't continue after close.
+        const video = this.modalBody.querySelector('video');
+        if (video) {
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
+        }
     }
     
     async launchDemo(item, method, category) {
@@ -169,13 +177,9 @@ class DemoLauncher {
             return;
         }
         
-        // Create video player modal
+        // Create video player modal (no header chrome — just the video)
+        this.modal.classList.add('video-open');
         const videoHtml = `
-            <div class="demo-header">
-                <div class="demo-title-section">
-                    <div class="demo-title">${method.platform} Demo</div>
-                </div>
-            </div>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 1vmin;">
                 <video 
                     controls 

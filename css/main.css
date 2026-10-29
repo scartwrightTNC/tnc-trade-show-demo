@@ -919,3 +919,6 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
     max-height: 16vmin;
     object-fit: contain;
 }
+
+/* Video modal ~30% wider than the standard modal. */
+.demo-modal.video-open .modal-content { max-width: 104vmin; }
