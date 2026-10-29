@@ -343,24 +343,20 @@
 
 /* Text-only badge (Other Services) to match the logo pills. */
 .feature-badge.text-badge {
-    background: transparent;
+    background: linear-gradient(135deg, var(--mql-blue) 0%, #0d1f3c 100%);
     backdrop-filter: none;
-    padding: 0;
+    box-shadow: 0 0.6vmin 2vmin rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .feature-badge .badge-text {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 11vmin;
+    height: 8vmin;
     min-width: 26vmin;
-    padding: 0 3vmin;
     font-size: 3vmin;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--mql-white);
-    background: linear-gradient(135deg, var(--mql-blue) 0%, #0d1f3c 100%);
-    border-radius: 1.2vmin;
-    box-shadow: 0 0.6vmin 2vmin rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
