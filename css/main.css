@@ -871,11 +871,12 @@ html, body {
 .lead-kb {
     display: none;
     position: fixed;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
     bottom: 0;
     z-index: 1200; /* above the lead modal (1100) */
-    padding: 1.4vmin 8vmin;
+    padding: 1.4vmin 2vmin;
     background: var(--mql-white);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.18);
 }
