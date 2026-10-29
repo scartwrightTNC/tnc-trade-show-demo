@@ -859,3 +859,6 @@ html, body {
     color: var(--mql-white);
 }
 
+
+/* KioskBoard renders to document.body — keep it above the modals (z-1100). */
+.kioskboard-wrapper { z-index: 3000 !important; }

@@ -28,9 +28,7 @@ const urlsToCache = [
   '/slides/revenue-pro.html',
   '/slides/noaweb.html',
   '/slides/full-service.html',
-  '/slides/remote-mgmt.html',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
-  'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js'
+  '/slides/remote-mgmt.html'
 ];
 
 // Optional resources - cache but don't fail if missing
@@ -43,6 +41,10 @@ const optionalUrls = [
   // 30MB attract loop â€” precached when present so the attract screen plays
   // offline at the show; optional so a missing file can't break install.
   '/assets/video/attract-loop.mp4',
+  // CDNs stay optional — Electron Capture's sandbox can block third-party
+  // requests, which would abort install if they were required.
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
+  'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js',
   // Slide deck imagery - precached so presentations render offline.
   '/slides/img/customerxp/s01-0.png',
   '/slides/img/customerxp/s01-1.png',
