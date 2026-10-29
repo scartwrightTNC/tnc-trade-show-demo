@@ -890,7 +890,7 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
     border-radius: 1vmin;
 }
 
-/* Keep the lead modal clear of the docked keyboard bar — pin it to the
+/* Keep the lead modal clear of the docked keyboard bar ï¿½ pin it to the
    top of the viewport and cap the scrollable body so the submit button
    stays visible above the keyboard. */
 .lead-modal.show { padding-bottom: 30vmin; }
@@ -921,4 +921,4 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
 }
 
 /* Video modal ~30% wider than the standard modal. */
-.demo-modal.video-open .modal-content { max-width: 104vmin; }
+.demo-modal.video-open .modal-content { max-width: 130vmin; }
