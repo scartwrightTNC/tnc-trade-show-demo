@@ -1,10 +1,87 @@
 {
   "categories": [
     {
-      "id": "enterprise",
-      "name": "Enterprise",
+      "id": "management",
+      "name": "Management Services",
+      "color": "#fd7e14",
+      "icon": "cogs",
+      "items": [
+        {
+          "id": "full-service",
+          "title": "Full Service",
+          "description": "Complete property management solution",
+          "icon": "briefcase",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/full-service.html"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Overview",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/full-service-demo.mp4"
+            }
+          ],
+          "logo": "assets/images/logos/full-service.png"
+        },
+        {
+          "id": "remote-management",
+          "title": "Remote Management",
+          "description": "Remote property monitoring and management",
+          "icon": "desktop",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "PowerPoint",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/remote-mgmt.html"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Overview",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/remote-mgmt-demo.mp4"
+            }
+          ],
+          "logo": "assets/images/logos/remote-mgmt.png"
+        },
+        {
+          "id": "noa-plus",
+          "title": "NOA+ Self Management",
+          "description": "Self-service management tools for owners",
+          "icon": "user-cog",
+          "methods": [
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Overview",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/noa-plus-demo.mp4"
+            }
+          ],
+          "logo": "assets/images/logos/noa-plus.png"
+        }
+      ],
+      "logo": "assets/images/logos/management.png"
+    },
+    {
+      "id": "office-pro",
+      "name": "NOA Office Pro",
       "color": "#0a2540",
-      "icon": "building",
+      "icon": "briefcase",
+      "logo": "assets/images/logos/office-pro.png",
       "items": [
         {
           "id": "field-tools",
@@ -102,9 +179,24 @@
               "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Contracts_Enterprise_Dashboard"
             }
           ]
+        },
+        {
+          "id": "claims",
+          "title": "Claims",
+          "description": "Claims dashboard and management",
+          "icon": "clipboard-list",
+          "methods": [
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Open in NOA",
+              "icon": "globe",
+              "requiresInternet": true,
+              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Claims_Dashboard"
+            }
+          ]
         }
-      ],
-      "logo": "assets/images/logos/enterprise.png"
+      ]
     },
     {
       "id": "customer-xp",
@@ -215,10 +307,11 @@
       "logo": "assets/images/logos/customer-xp.png"
     },
     {
-      "id": "standalone",
-      "name": "Standalone Services",
+      "id": "rev-pro",
+      "name": "Revenue Pro",
       "color": "#6f42c1",
-      "icon": "cube",
+      "icon": "chart-line",
+      "logo": "assets/images/logos/revenue-pro.png",
       "items": [
         {
           "id": "revenue-pro",
@@ -252,7 +345,16 @@
             }
           ],
           "logo": "assets/images/logos/revenue-pro.png"
-        },
+        }
+      ]
+    },
+    {
+      "id": "noaweb",
+      "name": "NOAWEB",
+      "color": "#0dcaf0",
+      "icon": "globe",
+      "logo": "assets/images/logos/noaweb.png",
+      "items": [
         {
           "id": "noaweb",
           "title": "NOAWEB",
@@ -278,84 +380,16 @@
           ],
           "logo": "assets/images/logos/noaweb.png"
         }
-      ],
-      "logo": "assets/images/packed-planet-logo.png"
+      ]
     },
     {
-      "id": "management",
-      "name": "Management Services",
-      "color": "#fd7e14",
-      "icon": "cogs",
-      "items": [
-        {
-          "id": "full-service",
-          "title": "Full Service",
-          "description": "Complete property management solution",
-          "icon": "briefcase",
-          "methods": [
-            {
-              "type": "slides",
-              "platform": "PowerPoint",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/full-service.html"
-            },
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Overview",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/full-service-demo.mp4"
-            }
-          ],
-          "logo": "assets/images/logos/full-service.png"
-        },
-        {
-          "id": "remote-management",
-          "title": "Remote Management",
-          "description": "Remote property monitoring and management",
-          "icon": "desktop",
-          "methods": [
-            {
-              "type": "slides",
-              "platform": "PowerPoint",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/remote-mgmt.html"
-            },
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Overview",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/remote-mgmt-demo.mp4"
-            }
-          ],
-          "logo": "assets/images/logos/remote-mgmt.png"
-        },
-        {
-          "id": "noa-plus",
-          "title": "NOA+ Self Management",
-          "description": "Self-service management tools for owners",
-          "icon": "user-cog",
-          "methods": [
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Overview",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/noa-plus-demo.mp4"
-            }
-          ],
-          "logo": "assets/images/logos/noa-plus.png"
-        }
-      ],
-      "logo": "assets/images/logos/management.png"
+      "id": "packedplanet",
+      "name": "Packed Planet",
+      "color": "#2b7de9",
+      "icon": "globe",
+      "logo": "assets/images/packed-planet-logo.png",
+      "url": "https://packedplanet.com/",
+      "items": []
     }
   ]
 }

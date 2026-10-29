@@ -190,3 +190,18 @@
     box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
 .reveal .pp-split .pp-split-media.two img { max-width: 48%; }
+
+/* Overlapping photo stack for split-layout media columns. */
+.reveal .pp-stack {
+    position: relative;
+    height: 460px;
+}
+.reveal .pp-stack img {
+    position: absolute;
+    width: 58%;
+    border-radius: 0.4em;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.45);
+}
+.reveal .pp-stack img:nth-child(1) { top: 0;    left: 0;   transform: rotate(-4deg); }
+.reveal .pp-stack img:nth-child(2) { top: 24%;  left: 34%; transform: rotate(3deg); }
+.reveal .pp-stack img:nth-child(3) { top: 52%;  left: 10%; transform: rotate(-2deg); }

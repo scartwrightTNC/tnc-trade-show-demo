@@ -196,6 +196,15 @@ class DemoLauncher {
         this.modalBody.innerHTML = videoHtml;
     }
     
+    openSite(url) {
+        // External site inside the fullscreen slides frame (packedplanet.com
+        // doesn't send X-Frame-Options).
+        const slidesModal = document.getElementById('slidesModal');
+        const frame = document.getElementById('slidesFrame');
+        frame.src = url;
+        slidesModal.classList.add('show');
+    }
+
     async launchSlides(method, item) {
         // Decks are reveal.js HTML pages in slides/ — shown in a fullscreen
         // iframe overlay so swipe/tap navigation gets the whole screen. The
