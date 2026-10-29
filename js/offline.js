@@ -9,14 +9,21 @@ class OfflineManager {
     }
     
     init() {
-        // Register service worker
+        // Caching disabled during development — tear down any stale worker
+        // and wipe its caches so every load is fresh. Restore registration
+        // for offline kiosk use before the show.
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('Service Worker registered:', registration);
+            navigator.serviceWorker.getRegistrations()
+                .then(registrations => Promise.all(
+                    registrations.map(r => r.unregister())
+                ))
+                .then(() => caches.keys())
+                .then(names => Promise.all(names.map(n => caches.delete(n))))
+                .then(() => {
+                    console.log('Service workers unregistered, caches cleared');
                 })
                 .catch(error => {
-                    console.error('Service Worker registration failed:', error);
+                    console.error('Service Worker cleanup failed:', error);
                 });
         }
         
