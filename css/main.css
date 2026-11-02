@@ -987,3 +987,10 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
     padding: 0.3vmin 1vmin;
     text-transform: capitalize;
 }
+
+/* Compact category cards — all nine fit without scrolling. */
+.category-card { padding: var(--space-md) var(--space-lg); }
+.category-logo { max-height: 11vmin; margin-bottom: var(--space-sm); }
+.category-icon { width: 8vmin; height: 8vmin; font-size: 4vmin; }
+.category-name { font-size: 2.2vmin; }
+.main-content { gap: var(--space-md); }

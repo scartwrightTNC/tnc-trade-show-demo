@@ -86,9 +86,7 @@ class MenuSystem {
                 ? `<img class="category-logo" src="${category.logo}" alt="${category.name}">`
                 : `<div class="category-icon"><i class="fas fa-${category.icon}"></i></div>
                    <div class="category-name">${category.name}</div>`}
-            ${category.url
-                ? `<div class="category-count">Visit site</div>`
-                : `<div class="category-count">${category.items.length} items</div>`}
+            ${category.url ? `<div class="category-count">Visit site</div>` : ''}
             <div class="category-types">${typeBadges}</div>
         `;
         
