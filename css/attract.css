@@ -360,3 +360,27 @@
     text-transform: uppercase;
     color: var(--mql-white);
 }
+
+/* Angled "New" tag on attract badges — pulses gently. */
+.feature-badge { position: relative; }
+.new-tag {
+    position: absolute;
+    top: -1.2vmin;
+    left: -1.6vmin;
+    z-index: 2;
+    background: linear-gradient(135deg, #fd7e14, #e8590c);
+    color: #fff;
+    font-size: 1.5vmin;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5vmin 1.5vmin;
+    border-radius: 0.6vmin;
+    transform: rotate(-14deg);
+    box-shadow: 0 0.4vmin 1.2vmin rgba(0, 0, 0, 0.4);
+    animation: new-tag-pulse 2.2s ease-in-out infinite;
+}
+@keyframes new-tag-pulse {
+    0%, 100% { transform: rotate(-14deg) scale(1); }
+    50% { transform: rotate(-14deg) scale(1.12); }
+}
