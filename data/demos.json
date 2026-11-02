@@ -120,6 +120,14 @@
               "icon": "play-circle",
               "requiresInternet": false,
               "src": "assets/demos/field-tools-demo.mp4"
+            },
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Latest Eval (Live Demo)",
+              "icon": "clipboard-list",
+              "requiresInternet": true,
+              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Latest_Eval"
             }
           ],
           "logo": "assets/images/logos/field-tools.png"
