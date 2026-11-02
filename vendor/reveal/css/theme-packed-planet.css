@@ -205,3 +205,6 @@
 .reveal .pp-stack img:nth-child(1) { top: 0;    left: 0;   transform: rotate(-4deg); }
 .reveal .pp-stack img:nth-child(2) { top: 24%;  left: 34%; transform: rotate(3deg); }
 .reveal .pp-stack img:nth-child(3) { top: 52%;  left: 10%; transform: rotate(-2deg); }
+
+/* Comparison slide: flat navy, larger columns */
+.reveal .pp-compare .pp-cols { font-size: 0.8em; gap: 2em; }
