@@ -208,3 +208,32 @@
 
 /* Comparison slide: flat navy, larger columns */
 .reveal .pp-compare .pp-cols { font-size: 0.8em; gap: 2em; }
+
+/* Icon tile grid */
+.reveal .pp-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6em;
+    margin-top: 0.8em;
+    text-align: left;
+}
+.reveal .pp-tile {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background: rgba(255,255,255,0.1);
+    border-radius: 0.35em;
+    padding: 0.45em 0.6em;
+    font-size: 0.62em;
+    font-weight: 600;
+}
+.reveal .pp-tile svg {
+    width: 1.5em;
+    height: 1.5em;
+    flex: none;
+    color: #1a1a2e;
+    background: #ffc72c;
+    border-radius: 50%;
+    padding: 0.3em;
+    box-sizing: content-box;
+}
