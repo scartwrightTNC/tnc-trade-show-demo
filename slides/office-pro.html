@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOA Office Pro — Packed Planet</title>
+    <link rel="stylesheet" href="../vendor/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../vendor/reveal/css/theme-packed-planet.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <div class="kicker">NOA Office Pro</div>
+            <h1>Essential Apps for Running Your Stores</h1>
+            <p class="subdued">A suite of essential applications. <span class="accent">Beta — included in all management plans</span></p>
+        </section>
+
+        <section>
+            <div class="kicker">The Suite</div>
+            <h2>Five Essential Apps in One</h2>
+            <ul>
+                <li><strong>Store Audit</strong> — digital walkthru, property checks, space audits</li>
+                <li><strong>Work Orders</strong> — created right from your Field Tools walkthru</li>
+                <li><strong>Budgets</strong> — operational budgeting built in</li>
+                <li><strong>Contracts</strong> — vendor and service agreements</li>
+                <li><strong>Claims</strong> — track claims end to end</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="kicker">Connected</div>
+            <h2>Each App Works Alone — Together, They Connect</h2>
+            <ul>
+                <li>Every application functions on its own</li>
+                <li>They connect to make your work easier</li>
+                <li>Work orders flow straight out of an audit walkthru</li>
+            </ul>
+        </section>
+
+        <section>
+            <img class="pp-img big" src="img/officepro/s04-0.png" alt="Field Tools dashboard">
+        </section>
+
+        <section>
+            <div class="kicker">Next Step</div>
+            <h2>See it in action</h2>
+            <p class="subdued">Get the details sent straight to you.</p>
+            <div class="pp-cta-row">
+                <button class="pp-cta" onclick="openLeadCapture()">Get More Info</button>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script src="../vendor/reveal/js/reveal.js"></script>
+<script>
+    Reveal.initialize({touch:true, controls:true, progress:true, center:true, hash:false, fragments:false});
+    function openLeadCapture() {
+        var p = window.parent;
+        if (p && p.leadCapture) {
+            var item = null, id = new URLSearchParams(window.location.search).get('item');
+            if (id && p.menuSystem && p.menuSystem.demoData) {
+                p.menuSystem.demoData.categories.forEach(function(c){ c.items.forEach(function(i){ if(i.id===id) item=i; }); });
+            }
+            if (p.demoLauncher) p.demoLauncher.closeSlides();
+            p.leadCapture.open(item);
+        }
+    }
+</script>
+</body>
+</html>

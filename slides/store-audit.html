@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Audit — Packed Planet</title>
+    <link rel="stylesheet" href="../vendor/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../vendor/reveal/css/theme-packed-planet.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <div class="kicker">Store Audit — Field Tools</div>
+            <h1>Ditch the Clipboard</h1>
+            <p class="subdued">Walk, sync, score — NOA takes it from there. <span class="accent">Now in Beta</span></p>
+        </section>
+
+        <section>
+            <div class="kicker">Old Way vs Store Audit</div>
+            <div class="pp-cols">
+                <div>
+                    <h3>The old way</h3>
+                    <ul>
+                        <li>Writing notes by hand</li>
+                        <li>Remembering what you saw</li>
+                        <li>Duplicating entries</li>
+                        <li>Scores compiled in spreadsheets</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>With Store Audit</h3>
+                    <ul>
+                        <li>Walk the property once</li>
+                        <li>Tap findings as you go</li>
+                        <li>Photos + notes on the spot</li>
+                        <li>Scores auto-compiled in NOA</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="kicker">How It Works</div>
+            <h2>Walk, Sync, Score</h2>
+            <ul>
+                <li>Launch Field Tools on your phone/tablet — QR code or NFC tap</li>
+                <li>Complete the walkthru checklist as you walk the property</li>
+                <li>Sync back to Salesforce — audits scored and reported automatically</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="kicker">One Walkthru</div>
+            <h2>Everything You Check, One Walk</h2>
+            <ul>
+                <li>Property checks &amp; space audits</li>
+                <li>Work orders &amp; maintenance tasks</li>
+                <li>Lock checks &amp; vacant unit inspections</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="kicker">Built for the Field</div>
+            <h2>Online and Off</h2>
+            <p class="subdued">Out of range? Field Tools caches everything and syncs when you're back in coverage.</p>
+            <img class="pp-img" src="img/storeaudit/s05-1.png" alt="Field Tools offline">
+        </section>
+
+        <section>
+            <div class="kicker">Next Step</div>
+            <h2>See it in action</h2>
+            <p class="subdued">Get the details sent straight to you.</p>
+            <div class="pp-cta-row">
+                <button class="pp-cta" onclick="openLeadCapture()">Get More Info</button>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script src="../vendor/reveal/js/reveal.js"></script>
+<script>
+    Reveal.initialize({touch:true, controls:true, progress:true, center:true, hash:false, fragments:false});
+    function openLeadCapture() {
+        var p = window.parent;
+        if (p && p.leadCapture) {
+            var item = null, id = new URLSearchParams(window.location.search).get('item');
+            if (id && p.menuSystem && p.menuSystem.demoData) {
+                p.menuSystem.demoData.categories.forEach(function(c){ c.items.forEach(function(i){ if(i.id===id) item=i; }); });
+            }
+            if (p.demoLauncher) p.demoLauncher.closeSlides();
+            p.leadCapture.open(item);
+        }
+    }
+</script>
+</body>
+</html>

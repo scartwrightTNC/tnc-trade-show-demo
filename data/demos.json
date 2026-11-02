@@ -90,25 +90,17 @@
           "icon": "clipboard-check",
           "methods": [
             {
-              "type": "device",
-              "platform": "iPad/iPhone",
-              "label": "Demo on Device",
-              "icon": "tablet-alt",
-              "requiresInternet": true,
-              "url": "https://noa-field-tools.vercel.app"
-            },
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Store Audit via NOA",
-              "icon": "external-link-alt",
-              "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Eval_Dashboard"
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/store-audit.html"
             },
             {
               "type": "video",
               "platform": "Video",
-              "label": "Watch Demo Video",
+              "label": "Watch Demo",
               "icon": "play-circle",
               "requiresInternet": false,
               "src": "assets/demos/field-tools-demo.mp4"
@@ -122,14 +114,6 @@
           "description": "Comprehensive work order and preventive maintenance system",
           "icon": "tools",
           "methods": [
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Open in NOA",
-              "icon": "external-link-alt",
-              "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Work_Order_Hub"
-            },
             {
               "type": "video",
               "platform": "Video",
@@ -145,54 +129,67 @@
           "title": "Budgets",
           "description": "Financial planning and budget management tools",
           "icon": "calculator",
-          "methods": [
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Open in NOA",
-              "icon": "external-link-alt",
-              "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Budget_Homepage"
-            }
-          ]
+          "methods": []
         },
         {
           "id": "contracts",
           "title": "Contracts",
           "description": "Contract lifecycle management and automation",
           "icon": "file-contract",
-          "methods": [
-            {
-              "type": "link",
-              "platform": "Salesforce",
-              "label": "Contracts Enterprise Dashboard",
-              "icon": "external-link-alt",
-              "requiresInternet": true,
-              "url": "https://noa--fullcopy.sandbox.lightning.force.com/lightning/n/Contracts_Enterprise_Dashboard"
-            },
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Open in NOA",
-              "icon": "external-link-alt",
-              "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Contracts_Enterprise_Dashboard"
-            }
-          ]
+          "methods": []
         },
         {
           "id": "claims",
           "title": "Claims",
           "description": "Claims dashboard and management",
           "icon": "clipboard-list",
+          "methods": []
+        },
+        {
+          "id": "eugene",
+          "title": "Eugene",
+          "description": "AI assistant built into NOA",
+          "icon": "robot",
           "methods": [
             {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Open in NOA",
-              "icon": "globe",
-              "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Claims_Dashboard"
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/eugene.html"
+            }
+          ]
+        },
+        {
+          "id": "office-pro-suite",
+          "title": "Office Pro Suite",
+          "description": "Essential apps for running your stores",
+          "icon": "briefcase",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/office-pro.html"
+            }
+          ]
+        },
+        {
+          "id": "noa-enterprise",
+          "title": "NOA Enterprise",
+          "description": "Your own custom white-box NOA",
+          "icon": "building",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/enterprise.html"
             }
           ]
         }
@@ -210,22 +207,6 @@
           "description": "Self-service kiosk solution for customer interactions",
           "icon": "tablet",
           "methods": [
-            {
-              "type": "link",
-              "platform": "iPhone/Promo Card",
-              "label": "View Demo",
-              "icon": "mobile-alt",
-              "requiresInternet": true,
-              "url": "https://live.myqiosk.com"
-            },
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Signup Website",
-              "icon": "globe",
-              "requiresInternet": true,
-              "url": "https://live.myqiosk.com"
-            },
             {
               "type": "slides",
               "platform": "Presentation",
@@ -334,14 +315,6 @@
               "icon": "play-circle",
               "requiresInternet": false,
               "src": "assets/demos/revenue-pro-demo.mp4"
-            },
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Open in NOA",
-              "icon": "external-link-alt",
-              "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.my.salesforce.com/lightning/n/Dashboard_Hub"
             }
           ],
           "logo": "assets/images/logos/revenue-pro.png"
@@ -368,14 +341,6 @@
               "icon": "file-powerpoint",
               "requiresInternet": false,
               "src": "slides/noaweb.html"
-            },
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "View AAAA Sample Site",
-              "icon": "external-link-alt",
-              "requiresInternet": true,
-              "url": "https://aaaaselfstorage.com"
             }
           ],
           "logo": "assets/images/logos/noaweb.png"

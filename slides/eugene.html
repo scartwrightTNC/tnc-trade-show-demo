@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eugene — Packed Planet</title>
+    <link rel="stylesheet" href="../vendor/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../vendor/reveal/css/theme-packed-planet.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <div class="kicker">Meet Eugene</div>
+            <h1>Your AI Inside NOA</h1>
+            <p class="subdued">A custom AI bot built on Salesforce Agentforce. <span class="accent">Beta — management accounts</span></p>
+        </section>
+
+        <section>
+            <div class="kicker">For Your Customers</div>
+            <h2>Natural Conversations, Real Answers</h2>
+            <ul>
+                <li>Retrieve access codes in a natural conversation</li>
+                <li>Check balances and due dates</li>
+                <li>Handle common questions without a staff call</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="kicker">On the Phone</div>
+            <h2>Eugene Answers the Call</h2>
+            <ul>
+                <li>Due date and balance inquiries</li>
+                <li>Autopay updates</li>
+                <li>Smart unit requirements</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="kicker">Roadmap</div>
+            <div class="pp-cols">
+                <div>
+                    <h3>Live today</h3>
+                    <ul>
+                        <li>Customer service calls</li>
+                        <li>Staff questions on policies &amp; procedures</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Learning now</h3>
+                    <ul>
+                        <li>Payments and sales</li>
+                        <li>Deeper business-data answers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="kicker">Availability</div>
+            <h2>Available Now in All Management Plans</h2>
+            <p class="subdued">Currently in Beta for management accounts — rolling out more broadly this fall.</p>
+        </section>
+
+        <section>
+            <div class="kicker">Next Step</div>
+            <h2>See it in action</h2>
+            <p class="subdued">Get the details sent straight to you.</p>
+            <div class="pp-cta-row">
+                <button class="pp-cta" onclick="openLeadCapture()">Get More Info</button>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script src="../vendor/reveal/js/reveal.js"></script>
+<script>
+    Reveal.initialize({touch:true, controls:true, progress:true, center:true, hash:false, fragments:false});
+    function openLeadCapture() {
+        var p = window.parent;
+        if (p && p.leadCapture) {
+            var item = null, id = new URLSearchParams(window.location.search).get('item');
+            if (id && p.menuSystem && p.menuSystem.demoData) {
+                p.menuSystem.demoData.categories.forEach(function(c){ c.items.forEach(function(i){ if(i.id===id) item=i; }); });
+            }
+            if (p.demoLauncher) p.demoLauncher.closeSlides();
+            p.leadCapture.open(item);
+        }
+    }
+</script>
+</body>
+</html>
