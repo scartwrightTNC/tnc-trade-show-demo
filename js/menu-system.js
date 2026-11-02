@@ -77,7 +77,11 @@ class MenuSystem {
         card.className = 'category-card';
         card.style.setProperty('--category-color', category.color);
         
+        const types = [...new Set(category.items.flatMap(i => i.methods.map(m => m.type)))];
+        const typeBadges = types.map(t => `<span class="type-badge">${t}</span>`).join('');
+
         card.innerHTML = `
+            ${category.newTag ? `<span class="new-tag">New</span>` : ''}
             ${category.logo
                 ? `<img class="category-logo" src="${category.logo}" alt="${category.name}">`
                 : `<div class="category-icon"><i class="fas fa-${category.icon}"></i></div>
@@ -85,6 +89,7 @@ class MenuSystem {
             ${category.url
                 ? `<div class="category-count">Visit site</div>`
                 : `<div class="category-count">${category.items.length} items</div>`}
+            <div class="category-types">${typeBadges}</div>
         `;
         
         card.addEventListener('click', () => {

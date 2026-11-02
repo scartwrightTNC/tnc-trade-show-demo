@@ -72,6 +72,22 @@
             }
           ],
           "logo": "assets/images/logos/noa-plus.png"
+        },
+        {
+          "id": "eugene",
+          "title": "Eugene",
+          "description": "AI assistant built into NOA",
+          "icon": "robot",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/eugene.html"
+            }
+          ]
         }
       ],
       "logo": "assets/images/logos/management.png"
@@ -144,56 +160,9 @@
           "description": "Claims dashboard and management",
           "icon": "clipboard-list",
           "methods": []
-        },
-        {
-          "id": "eugene",
-          "title": "Eugene",
-          "description": "AI assistant built into NOA",
-          "icon": "robot",
-          "methods": [
-            {
-              "type": "slides",
-              "platform": "Presentation",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/eugene.html"
-            }
-          ]
-        },
-        {
-          "id": "office-pro-suite",
-          "title": "Office Pro Suite",
-          "description": "Essential apps for running your stores",
-          "icon": "briefcase",
-          "methods": [
-            {
-              "type": "slides",
-              "platform": "Presentation",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/office-pro.html"
-            }
-          ]
-        },
-        {
-          "id": "noa-enterprise",
-          "title": "NOA Enterprise",
-          "description": "Your own custom white-box NOA",
-          "icon": "building",
-          "methods": [
-            {
-              "type": "slides",
-              "platform": "Presentation",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/enterprise.html"
-            }
-          ]
         }
-      ]
+      ],
+      "newTag": true
     },
     {
       "id": "customer-xp",
@@ -285,7 +254,8 @@
           "logo": "assets/images/logos/access-plus-v2.png"
         }
       ],
-      "logo": "assets/images/logos/customer-xp.png"
+      "logo": "assets/images/logos/customer-xp.png",
+      "newTag": true
     },
     {
       "id": "rev-pro",
@@ -344,6 +314,80 @@
             }
           ],
           "logo": "assets/images/logos/noaweb.png"
+        }
+      ]
+    },
+    {
+      "id": "marketing-pro",
+      "name": "Marketing Pro",
+      "color": "#e91e63",
+      "icon": "bullhorn",
+      "items": [
+        {
+          "id": "marketing-pro",
+          "title": "Marketing Pro",
+          "description": "Marketing automation for self-storage",
+          "icon": "bullhorn",
+          "methods": [
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Open Site",
+              "icon": "globe",
+              "requiresInternet": true,
+              "url": "https://packedplanet.com/marketing-pro/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "call-connect",
+      "name": "Call Connect",
+      "color": "#00acc1",
+      "icon": "phone",
+      "items": [
+        {
+          "id": "call-connect",
+          "title": "Call Connect",
+          "description": "Call answering for self-storage",
+          "icon": "phone",
+          "methods": [
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Open Site",
+              "icon": "globe",
+              "requiresInternet": true,
+              "url": "https://packedplanet.com/call-connect/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enterprise",
+      "name": "NOA Enterprise",
+      "color": "#0d47a1",
+      "icon": "building",
+      "logo": "assets/images/logos/enterprise.png",
+      "newTag": true,
+      "items": [
+        {
+          "id": "noa-enterprise",
+          "title": "NOA Enterprise",
+          "description": "Your own custom white-box NOA",
+          "icon": "building",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/enterprise.html"
+            }
+          ]
         }
       ]
     },

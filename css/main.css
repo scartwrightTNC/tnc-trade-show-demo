@@ -951,3 +951,39 @@ body:has(.lead-modal.show) .lead-kb { display: block; }
 }
 .slides-modal.site-mode .site-back { display: flex; }
 .site-back:active { transform: scale(0.97); }
+
+/* Category cards: relative for the New tag; content-type badges. */
+.category-card { position: relative; overflow: visible; }
+.category-card .new-tag {
+    position: absolute;
+    top: -1.2vmin;
+    left: -1.2vmin;
+    z-index: 2;
+    background: linear-gradient(135deg, #fd7e14, #e8590c);
+    color: #fff;
+    font-size: 1.4vmin;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.4vmin 1.2vmin;
+    border-radius: 0.6vmin;
+    transform: rotate(-14deg);
+    box-shadow: 0 0.4vmin 1vmin rgba(0,0,0,0.3);
+}
+.category-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6vmin;
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+.type-badge {
+    font-size: 1.3vmin;
+    font-weight: 600;
+    color: var(--mql-gray-600);
+    background: var(--mql-gray-100);
+    border: 1px solid var(--mql-gray-200);
+    border-radius: 1vmin;
+    padding: 0.3vmin 1vmin;
+    text-transform: capitalize;
+}
