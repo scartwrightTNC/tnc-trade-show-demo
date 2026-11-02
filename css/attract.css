@@ -384,3 +384,11 @@
     0%, 100% { transform: rotate(-14deg) scale(1); }
     50% { transform: rotate(-14deg) scale(1.12); }
 }
+
+/* Two equal rows of badges on the attract screen. */
+.attract-features {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 2.5vmin 3vmin;
+}
