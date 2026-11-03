@@ -72,22 +72,6 @@
             }
           ],
           "logo": "assets/images/logos/noa-plus.png"
-        },
-        {
-          "id": "eugene",
-          "title": "Eugene",
-          "description": "AI assistant built into NOA",
-          "icon": "robot",
-          "methods": [
-            {
-              "type": "slides",
-              "platform": "Presentation",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/eugene.html"
-            }
-          ]
         }
       ],
       "logo": "assets/images/logos/management.png"
@@ -99,39 +83,6 @@
       "icon": "briefcase",
       "logo": "assets/images/logos/office-pro.png",
       "items": [
-        {
-          "id": "field-tools",
-          "title": "Store Audit / Field Tools",
-          "description": "Mobile-first facility evaluation and audit tools for field teams",
-          "icon": "clipboard-check",
-          "methods": [
-            {
-              "type": "slides",
-              "platform": "Presentation",
-              "label": "View Presentation",
-              "icon": "file-powerpoint",
-              "requiresInternet": false,
-              "src": "slides/store-audit.html"
-            },
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Demo",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/field-tools-demo.mp4"
-            },
-            {
-              "type": "link",
-              "platform": "Web Browser",
-              "label": "Latest Eval (Live Demo)",
-              "icon": "clipboard-list",
-              "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Latest_Eval"
-            }
-          ],
-          "logo": "assets/images/logos/field-tools.png"
-        },
         {
           "id": "maintenance",
           "title": "Maintenance Management",
@@ -171,6 +122,73 @@
         }
       ],
       "newTag": true
+    },
+    {
+      "id": "store-audit",
+      "name": "Store Audit",
+      "color": "#1565c0",
+      "icon": "clipboard-check",
+      "logo": "assets/images/logos/store-audit.png",
+      "items": [
+        {
+          "id": "field-tools",
+          "title": "Store Audit / Field Tools",
+          "description": "Mobile-first facility evaluation and audit tools for field teams",
+          "icon": "clipboard-check",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/store-audit.html"
+            },
+            {
+              "type": "video",
+              "platform": "Video",
+              "label": "Watch Demo",
+              "icon": "play-circle",
+              "requiresInternet": false,
+              "src": "assets/demos/field-tools-demo.mp4"
+            },
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Latest Eval (Live Demo)",
+              "icon": "clipboard-list",
+              "requiresInternet": true,
+              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Latest_Eval"
+            }
+          ],
+          "logo": "assets/images/logos/field-tools.png"
+        }
+      ]
+    },
+    {
+      "id": "eugene",
+      "name": "Eugene",
+      "color": "#5e35b1",
+      "icon": "robot",
+      "logo": "assets/images/logos/eugene.png",
+      "items": [
+        {
+          "id": "eugene",
+          "title": "Eugene",
+          "description": "AI assistant built into NOA",
+          "icon": "robot",
+          "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/eugene.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "customer-xp",
