@@ -84,41 +84,28 @@
       "logo": "assets/images/logos/office-pro.png",
       "items": [
         {
-          "id": "maintenance",
-          "title": "Maintenance Management",
-          "description": "Comprehensive work order and preventive maintenance system",
-          "icon": "tools",
+          "id": "office-pro",
+          "title": "NOA Office Pro",
+          "description": "Five connected apps: Store Audit, Maintenance, Budgets, Contracts, Claims",
+          "icon": "briefcase",
           "methods": [
+            {
+              "type": "slides",
+              "platform": "Presentation",
+              "label": "View Presentation",
+              "icon": "file-powerpoint",
+              "requiresInternet": false,
+              "src": "slides/office-pro.html"
+            },
             {
               "type": "video",
               "platform": "Video",
-              "label": "Watch Overview",
+              "label": "Watch Demo",
               "icon": "play-circle",
               "requiresInternet": false,
-              "src": "assets/demos/maintenance-demo.mp4"
+              "src": "assets/demos/field-tools-demo.mp4"
             }
           ]
-        },
-        {
-          "id": "budgets",
-          "title": "Budgets",
-          "description": "Financial planning and budget management tools",
-          "icon": "calculator",
-          "methods": []
-        },
-        {
-          "id": "contracts",
-          "title": "Contracts",
-          "description": "Contract lifecycle management and automation",
-          "icon": "file-contract",
-          "methods": []
-        },
-        {
-          "id": "claims",
-          "title": "Claims",
-          "description": "Claims dashboard and management",
-          "icon": "clipboard-list",
-          "methods": []
         }
       ],
       "newTag": true
