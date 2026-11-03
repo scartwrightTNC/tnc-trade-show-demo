@@ -229,14 +229,6 @@
               "icon": "mobile-alt",
               "requiresInternet": false,
               "note": "Digital wallet saved offline"
-            },
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Demo",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/access-plus-demo.mp4"
             }
           ],
           "logo": "assets/images/logos/access-plus-v2.png"
