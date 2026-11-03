@@ -71,6 +71,14 @@
               "icon": "file-powerpoint",
               "requiresInternet": false,
               "src": "slides/office-pro.html"
+            },
+            {
+              "type": "link",
+              "platform": "Web Browser",
+              "label": "Work Orders (Live Demo)",
+              "icon": "tools",
+              "requiresInternet": true,
+              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Work_Order_Hub"
             }
           ]
         }
