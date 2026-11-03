@@ -12,7 +12,7 @@ class LeadCapture {
         // Which trade show this kiosk is at — set per device via a
         // ?show=<slug> URL param (bookmark it). Null when unset; Salesforce
         // stores whatever slug arrives.
-        this.show = new URLSearchParams(window.location.search).get('show');
+        this.show = new URLSearchParams(window.location.search).get('show') || 'msm-the-show';
         this.queueKey = 'tnc-lead-queue';
         this.emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
