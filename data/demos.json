@@ -19,14 +19,6 @@
               "icon": "file-powerpoint",
               "requiresInternet": false,
               "src": "slides/full-service.html"
-            },
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Overview",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/full-service-demo.mp4"
             }
           ],
           "logo": "assets/images/logos/full-service.png"
@@ -44,14 +36,6 @@
               "icon": "file-powerpoint",
               "requiresInternet": false,
               "src": "slides/remote-mgmt.html"
-            },
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Overview",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/remote-mgmt-demo.mp4"
             }
           ],
           "logo": "assets/images/logos/remote-mgmt.png"
@@ -61,16 +45,7 @@
           "title": "NOA+ Self Management",
           "description": "Self-service management tools for owners",
           "icon": "user-cog",
-          "methods": [
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Overview",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/noa-plus-demo.mp4"
-            }
-          ],
+          "methods": [],
           "logo": "assets/images/logos/noa-plus.png"
         }
       ],
