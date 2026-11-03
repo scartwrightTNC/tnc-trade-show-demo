@@ -128,7 +128,7 @@
       "name": "Store Audit",
       "color": "#1565c0",
       "icon": "clipboard-check",
-      "logo": "assets/images/logos/store-audit.png",
+      "logo": "assets/images/logos/field-tools.png",
       "items": [
         {
           "id": "field-tools",
