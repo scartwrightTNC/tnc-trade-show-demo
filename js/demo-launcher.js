@@ -145,6 +145,12 @@ class DemoLauncher {
                 setTimeout(() => this.closeModal(), 500);
                 break;
             case 'link':
+                if (method.external) {
+                    // Salesforce blocks iframing — open in a new tab
+                    this.launchExternalLink(method);
+                    setTimeout(() => this.closeModal(), 500);
+                    break;
+                }
                 // Open inside the kiosk frame like the packedplanet embed
                 this.openSite(method.url);
                 this.closeModal();

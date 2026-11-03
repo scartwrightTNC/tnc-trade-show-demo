@@ -78,7 +78,8 @@
               "label": "Work Orders (Live Demo)",
               "icon": "tools",
               "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Work_Order_Hub"
+              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Work_Order_Hub",
+              "external": true
             }
           ]
         }
@@ -120,7 +121,8 @@
               "label": "Latest Eval (Live Demo)",
               "icon": "clipboard-list",
               "requiresInternet": true,
-              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Latest_Eval"
+              "url": "https://noa--demoshow.sandbox.lightning.force.com/lightning/n/Latest_Eval",
+              "external": true
             }
           ],
           "logo": "assets/images/logos/field-tools.png"
