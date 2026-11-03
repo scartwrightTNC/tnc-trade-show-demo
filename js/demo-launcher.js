@@ -140,10 +140,14 @@ class DemoLauncher {
         // Handle different demo types
         switch (method.type) {
             case 'device':
-            case 'link':
                 this.launchExternalLink(method);
                 // Close modal after external link launch
                 setTimeout(() => this.closeModal(), 500);
+                break;
+            case 'link':
+                // Open inside the kiosk frame like the packedplanet embed
+                this.openSite(method.url);
+                this.closeModal();
                 break;
             case 'video':
                 await this.launchVideo(method);
