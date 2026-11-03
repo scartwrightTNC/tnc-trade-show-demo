@@ -96,14 +96,6 @@
               "icon": "file-powerpoint",
               "requiresInternet": false,
               "src": "slides/office-pro.html"
-            },
-            {
-              "type": "video",
-              "platform": "Video",
-              "label": "Watch Demo",
-              "icon": "play-circle",
-              "requiresInternet": false,
-              "src": "assets/demos/field-tools-demo.mp4"
             }
           ]
         }
