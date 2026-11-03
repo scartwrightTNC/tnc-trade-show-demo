@@ -171,9 +171,34 @@ class AttractionScreen {
         // Only set timer if not in attract mode
         if (!this.isActive) {
             this.idleTimer = setTimeout(() => {
+                // Don't return to attract while media is playing — re-arm instead.
+                if (this.mediaPlaying()) {
+                    this.resetIdleTimer();
+                    return;
+                }
                 this.enter();
             }, this.idleTimeout);
         }
+    }
+
+    mediaPlaying() {
+        const playing = el => el && !el.paused && !el.ended;
+        const docs = [document];
+        document.querySelectorAll('iframe').forEach(f => {
+            try { if (f.contentDocument) docs.push(f.contentDocument); } catch (e) { /* cross-origin */ }
+        });
+        for (const doc of docs) {
+            for (const el of doc.querySelectorAll('video, audio')) {
+                if (playing(el)) return true;
+            }
+        }
+        // Eugene deck audio uses a window-scoped player, not a DOM element.
+        const slidesFrame = document.getElementById('slidesFrame');
+        try {
+            if (slidesFrame && slidesFrame.contentWindow &&
+                playing(slidesFrame.contentWindow.player)) return true;
+        } catch (e) { /* cross-origin */ }
+        return false;
     }
     
     enter() {
