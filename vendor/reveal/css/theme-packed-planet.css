@@ -237,3 +237,41 @@
     padding: 0.3em;
     box-sizing: content-box;
 }
+
+/* Audio sample tiles */
+.reveal .pp-audio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    margin: 0.8em auto 0;
+    max-width: 20em;
+}
+.reveal .pp-audio {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-family: inherit;
+    font-size: 0.6em;
+    font-weight: 600;
+    text-align: left;
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 0.4em;
+    padding: 0.4em 0.7em;
+    cursor: pointer;
+}
+.reveal .pp-audio.playing { background: rgba(253,126,20,0.35); border-color: #fd7e14; }
+.reveal .pp-audio-icon {
+    flex: none;
+    width: 1.8em;
+    height: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    color: #fff;
+    background: #fd7e14;
+    border-radius: 50%;
+}
+.reveal .pp-audio.playing .pp-audio-icon { background: #fff; color: #e8590c; }

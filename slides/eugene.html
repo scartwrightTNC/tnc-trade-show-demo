@@ -38,6 +38,18 @@
         </section>
 
         <section>
+            <div class="kicker">Hear Eugene</div>
+            <h2>Real Customer Calls</h2>
+            <div class="pp-audio-grid">
+                <button class="pp-audio" data-src="../assets/audio/eugene/eugene_deborah_new_rental.mp3"><span class="pp-audio-icon">▶</span>Deborah — New Rental</button>
+                <button class="pp-audio" data-src="../assets/audio/eugene/eugene_rebecca_account_question.mp3"><span class="pp-audio-icon">▶</span>Rebecca — Account Question</button>
+                <button class="pp-audio" data-src="../assets/audio/eugene/eugene_ronald_balance.mp3"><span class="pp-audio-icon">▶</span>Ronald — Balance</button>
+                <button class="pp-audio" data-src="../assets/audio/eugene/eugene_angela_smart_unit.mp3"><span class="pp-audio-icon">▶</span>Angela — Smart Unit</button>
+                <button class="pp-audio" data-src="../assets/audio/eugene/eugene_donald_promise_to_pay_empathy.mp3"><span class="pp-audio-icon">▶</span>Donald — Promise to Pay</button>
+            </div>
+        </section>
+
+        <section>
             <div class="kicker">Roadmap</div>
             <div class="pp-cols">
                 <div>
@@ -77,6 +89,26 @@
 <script src="../vendor/reveal/js/reveal.js"></script>
 <script>
     Reveal.initialize({touch:true, controls:true, progress:true, center:true, hash:false, fragments:false});
+
+    var player = new Audio();
+    var activeBtn = null;
+    function stopAudio() {
+        player.pause();
+        if (activeBtn) { activeBtn.classList.remove('playing'); activeBtn.querySelector('.pp-audio-icon').textContent = '▶'; activeBtn = null; }
+    }
+    document.querySelectorAll('.pp-audio').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            if (activeBtn === btn) { stopAudio(); return; }
+            stopAudio();
+            player.src = btn.dataset.src;
+            player.play();
+            activeBtn = btn;
+            btn.classList.add('playing');
+            btn.querySelector('.pp-audio-icon').textContent = '■';
+        });
+    });
+    player.addEventListener('ended', stopAudio);
+    Reveal.on('slidechanged', stopAudio);
     function openLeadCapture() {
         var p = window.parent;
         if (p && p.leadCapture) {
